@@ -603,6 +603,7 @@ PLATFORM DEVELOPER</p>
 <div class="divider"></div>
 
 <!-- Sección CONTACTO: contiene información de contacto y formulario. -->
+  
 <section id="contact">
   <div class="container">
     <p class="section-label reveal">Contacto</p>
@@ -631,132 +632,42 @@ PLATFORM DEVELOPER</p>
         </div>
       </div>
 
-  <form id="contact-form" class="contact-form reveal-right">
+      <form id="contact-form" class="contact-form reveal-right">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
 
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+        </div>
 
-  <div class="form-row">
+        <div class="form-group">
+          <label for="asunto">Asunto</label>
+          <input type="text" id="asunto" name="asunto" placeholder="¿De qué quieres hablar?">
+        </div>
 
+        <div class="form-group">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntame tu proyecto o propuesta..." required></textarea>
+        </div>
 
-    <div class="form-group">
-
-      <label for="nombre">
-        Nombre
-      </label>
-
-
-      <input 
-      type="text" 
-      id="nombre" 
-      name="nombre"
-      placeholder="Tu nombre"
-      required>
-
-    </div>
-
-
-
-    <div class="form-group">
-
-
-      <label for="email">
-        Email
-      </label>
-
-
-      <input 
-      type="email" 
-      id="email" 
-      name="email"
-      placeholder="tu@email.com"
-      required>
-
-
-    </div>
-
-
-  </div>
-
-
-
-
-  <div class="form-group">
-
-
-    <label for="asunto">
-      Asunto
-    </label>
-
-
-    <input 
-    type="text"
-    id="asunto"
-    name="asunto"
-    placeholder="¿De qué quieres hablar?">
-
-
-  </div>
-
-
-
-
-
-  <div class="form-group">
-
-
-    <label for="mensaje">
-      Mensaje
-    </label>
-
-
-    <textarea
-    id="mensaje"
-    name="mensaje"
-    placeholder="Cuéntame tu proyecto o propuesta..."
-    required></textarea>
-
-
-  </div>
-
-
-
-
-
-
-  <button 
-  type="submit" 
-  class="form-submit">
-
-
-    Enviar mensaje
-
-
-    <svg 
-    width="16" 
-    height="16" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    stroke-width="2">
-
-
-      <line x1="22" y1="2" x2="11" y2="13"/>
-
-
-      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-
-
-    </svg>
-
-
-  </button>
-
-
-
-</form>
+        <button type="submit" class="form-submit">
+          Enviar mensaje
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </form>
     </div>
   </div>
 </section>
 
+  
 <!-- FOOTER: pie de página con información final y enlaces secundarios. -->
 <footer>
   <p class="footer-copy">© 2026 <span>Daniel Navas</span> — Desarrollador de Aplicaciones Web · Algeciras, Cádiz</p>
