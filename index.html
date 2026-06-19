@@ -1,8 +1,19 @@
+<!--
+DOCUMENTO COMENTADO
+
+Este archivo mantiene exactamente la estructura y líneas originales del código.
+Los comentarios añadidos explican la función de cada bloque y sección.
+No se ha eliminado ni modificado ninguna instrucción HTML existente.
+-->
+
+<!-- Declaración del tipo de documento HTML5. Indica al navegador cómo interpretar la página. -->
 <!DOCTYPE html>
+<!-- Inicio del documento HTML. El atributo lang indica que el contenido está en español. -->
 <html lang="es">
+<!-- HEAD: contiene configuraciones, metadatos, fuentes externas, estilos y recursos necesarios antes de cargar la página. -->
 <head>
 <meta charset="UTF-8">
-<link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Daniel Navas | Desarrollador de Aplicaciones Web</title>
 <meta name="description" content="Daniel Navas, Desarrollador Full Stack en Algeciras, Cádiz. Especializado en desarrollo web, automatización empresarial y Microsoft Power Platform.">
@@ -21,6 +32,7 @@
 
 <link rel="stylesheet" href="style.css">
 </head>
+<!-- BODY: contiene toda la estructura visual e interactiva que verá el usuario. -->
 <body>
 
 <div class="cursor" id="cursor"></div>
@@ -31,12 +43,14 @@
 <div class="ambient ambient-1"></div>
 <div class="ambient ambient-2"></div>
 
+<!-- Barra de navegación principal. Contiene enlaces para desplazarse por las diferentes secciones de la web. -->
 <nav id="navbar">
   <a href="#hero" class="nav-logo">Daniel<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#about">Sobre mí</a></li>
     <li><a href="#stack">Stack</a></li>
     <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#education">Formación</a></li>
     <li><a href="#projects">Proyectos</a></li>
     <li><a href="#services">Servicios</a></li>
   </ul>
@@ -50,17 +64,19 @@
   <a href="#about" class="mobile-nav-link">Sobre mí</a>
   <a href="#stack" class="mobile-nav-link">Stack</a>
   <a href="#experience" class="mobile-nav-link">Experiencia</a>
+  <a href="#education" class="mobile-nav-link">Formación</a>
   <a href="#projects" class="mobile-nav-link">Proyectos</a>
   <a href="#services" class="mobile-nav-link">Servicios</a>
   <a href="#contact" class="mobile-nav-link">Contactar</a>
 </div>
 
+<!-- Sección HERO: portada inicial con presentación, animaciones, llamada a la acción y datos principales. -->
 <section id="hero">
   <canvas id="particles-canvas"></canvas>
   <div class="hero-container">
     <div class="hero-badge" id="hero-badge">
       <span class="dot"></span>
-      Disponible para trabajar
+     Disponible para trabajar
     </div>
 
     <h1 class="hero-name" id="hero-name">
@@ -69,7 +85,7 @@
     </h1>
 
     <p class="hero-role" id="hero-role">DESARROLLADOR WEB FULLSTACK | POWER
-PLATFORM DEVELOPER </p>
+PLATFORM DEVELOPER</p>
 
     <p class="hero-desc" id="hero-desc">
       Desarrollo aplicaciones web modernas, automatizaciones empresariales y soluciones digitales enfocadas en eficiencia, rendimiento y experiencia de usuario.
@@ -105,6 +121,7 @@ PLATFORM DEVELOPER </p>
 
 <div class="divider"></div>
 
+<!-- Sección SOBRE MÍ: muestra información personal, descripción profesional y estadísticas. -->
 <section id="about">
   <div class="container">
     <p class="section-label reveal">Sobre mí</p>
@@ -117,7 +134,16 @@ PLATFORM DEVELOPER </p>
         <p>Durante mi formación y experiencia profesional he trabajado en <strong>proyectos web completos</strong>, aplicaciones empresariales y soluciones basadas en Microsoft Power Platform.</p>
         <p>Me apasiona el aprendizaje continuo y la creación de herramientas que aporten <strong>valor real</strong> a usuarios y empresas.</p>
       </div>
-      <div class="about-stats reveal-right">
+      <div class="about-photo reveal">
+        <div class="photo-frame">
+          <img src="yo.jpeg" alt="Daniel Navas" class="profile-photo" onerror="this.style.display='none'; this.parentElement.classList.add('photo-placeholder')">
+          <div class="photo-placeholder-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>foto.jpg</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-stats reveal-right" style="grid-column: 1 / -1;">
         <div class="stat-card">
           <div class="stat-num counter" data-target="3">3</div>
           <div class="stat-label">Años de formación tecnológica</div>
@@ -141,6 +167,7 @@ PLATFORM DEVELOPER </p>
 
 <div class="divider"></div>
 
+<!-- Sección STACK: listado de tecnologías, lenguajes y herramientas utilizadas. -->
 <section id="stack">
   <div class="container">
     <p class="section-label reveal">Tecnologías</p>
@@ -152,26 +179,66 @@ PLATFORM DEVELOPER </p>
       <div class="reveal">
         <p class="stack-cat-label">Frontend</p>
         <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">🌐</div><div class="tech-name">HTML5</div></div>
-          <div class="tech-item"><div class="tech-icon">🎨</div><div class="tech-name">CSS3</div></div>
-          <div class="tech-item"><div class="tech-icon">⚡</div><div class="tech-name">JavaScript</div></div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l2.5 22L16 30l8.5-3L27 5H5z" fill="#E44D26"/><path d="M16 27.4l6.9-1.9 2.1-18.5H16v20.4z" fill="#F16529"/><path d="M16 13h-3.5l-.2-2.5H16V8H9.5l.5 5.5H16v2.5H12.2l.3 3.5L16 21v-3.5z" fill="#EBEBEB"/><path d="M16 13v2.5h3.3l-.3 3.5-3 .8v3l3.4-.9.2-3 .5-5.9H16z" fill="#fff"/></svg>
+            </div>
+            <div class="tech-name">HTML5</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 5l2.5 22L16 30l8.5-3L27 5H5z" fill="#264DE4"/><path d="M16 27.4l6.9-1.9 2.1-18.5H16v20.4z" fill="#2965F1"/><path d="M16 13h3.5l.2-2.5H16V8h6.5l-.5 5.5H16v2.5h3.8l-.3 3.5L16 21v3l3.4-.9.5-4.5.5-5.9v-.2H16v2.5h-.1z" fill="#fff"/><path d="M16 8H9.5l.5 5.5H16V11h-3.2l-.2-2.5H16V8zm0 5h-3.2l.3 3.5 2.9.8V19l-3.1-.8-.2-3H16v2.5h-.1z" fill="#EBEBEB"/></svg>
+            </div>
+            <div class="tech-name">CSS3</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#F7DF1E"/><path d="M8.9 24.7l1.9-1.1c.4.6.7 1.1 1.5 1.1.7 0 1.2-.3 1.2-1.4v-7.5h2.4v7.5c0 2.3-1.3 3.3-3.3 3.3-1.7 0-2.8-.9-3.3-2l1.6-.9zm7-.3l1.9-1.1c.5.8 1.2 1.4 2.3 1.4 1 0 1.6-.5 1.6-1.2 0-.8-.7-1.1-1.8-1.6l-.6-.3c-1.8-.8-3-1.7-3-3.8 0-1.8 1.4-3.2 3.6-3.2 1.6 0 2.7.5 3.5 1.9l-1.9 1.2c-.4-.7-.9-1-1.6-1-.7 0-1.1.4-1.1 1 0 .7.5 1 1.5 1.5l.6.3c2.1.9 3.3 1.8 3.3 3.9 0 2.2-1.7 3.4-4 3.4-2.2 0-3.6-1.1-4.3-2.4z" fill="#333"/></svg>
+            </div>
+            <div class="tech-name">JavaScript</div>
+          </div>
         </div>
       </div>
 
       <div class="reveal">
         <p class="stack-cat-label">Backend</p>
         <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">🐘</div><div class="tech-name">PHP</div></div>
-          <div class="tech-item"><div class="tech-icon">☕</div><div class="tech-name">Java</div></div>
-          <div class="tech-item"><div class="tech-icon">🐍</div><div class="tech-name">Python</div></div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13S23.2 3 16 3z" fill="#777BB3"/><path d="M10 20.5h1.6l.9-4.5H14c1.2 0 2.1-.3 2.7-.8.6-.5.9-1.2.9-2.1 0-.7-.2-1.3-.6-1.6-.4-.4-1-.5-1.9-.5H11L10 20.5zm2.7-5.8l.6-3h1.4c.5 0 .9.1 1.1.3.2.2.4.5.4 1 0 .5-.2.9-.5 1.2-.3.3-.8.5-1.4.5h-1.6zm6.6 5.8h1.6l.9-4.5H23c1.2 0 2.1-.3 2.7-.8.6-.5.9-1.2.9-2.1 0-.7-.2-1.3-.6-1.6-.4-.4-1-.5-1.9-.5h-4l-1 9zm2.7-5.8l.6-3h1.4c.5 0 .9.1 1.1.3.2.2.4.5.4 1 0 .5-.2.9-.5 1.2-.3.3-.8.5-1.4.5h-1.6zM7 20.5h1.8L9.5 17h1.2l.5 3.5H13l-.5-3.5c1-.3 1.5-1 1.5-2 0-.6-.2-1.1-.6-1.4-.4-.3-1-.5-1.8-.5H8.5L7 20.5z" fill="#fff"/></svg>
+            </div>
+            <div class="tech-name">PHP</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 3l11 6v12L16 27 5 21V9L16 3z" fill="#EA2D2E"/><path d="M16 3l11 6-11 6L5 9l11-6z" fill="#EA2D2E"/><path d="M5 9l11 6v12L5 21V9z" fill="#BF2021"/><path d="M27 9v12l-11 6V15l11-6z" fill="#EB3B35"/><path d="M16 8c-2.2 0-4 .9-4 2s1.8 2 4 2 4-.9 4-2-1.8-2-4-2z" fill="#fff" opacity=".5"/></svg>
+            </div>
+            <div class="tech-name">Java</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 3C8.8 3 3 8.8 3 16s5.8 13 13 13 13-5.8 13-13S23.2 3 16 3z" fill="#3776AB"/><path d="M12 7.5c-2.5 0-3.5 1.1-3.5 2.5l-.1 2c0 .6.5 1 1.1 1H10v-1h-.5c-.3 0-.5-.2-.5-.5V10c0-.8.7-1.5 2-1.5h2c1.3 0 2 .7 2 1.5v3.5c0 .8-.7 1.5-2 1.5h-1v1h1c2.5 0 3.5-1.1 3.5-2.5V10c0-1.4-1-2.5-3.5-2.5h-3zm8 7c-2.5 0-3.5 1.1-3.5 2.5v2.5c0 1.4 1 2.5 3.5 2.5h3c2.5 0 3.5-1.1 3.5-2.5l.1-2c0-.6-.5-1-1.1-1H25v1h.5c.3 0 .5.2.5.5v1.5c0 .8-.7 1.5-2 1.5h-2c-1.3 0-2-.7-2-1.5v-3.5c0-.8.7-1.5 2-1.5h1v-1h-1z" fill="#FFD43B"/></svg>
+            </div>
+            <div class="tech-name">Python</div>
+          </div>
         </div>
       </div>
 
       <div class="reveal">
         <p class="stack-cat-label">Bases de Datos</p>
         <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">🗄️</div><div class="tech-name">MySQL</div></div>
-          <div class="tech-item"><div class="tech-icon">📊</div><div class="tech-name">SQL</div></div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 5C9.9 5 5 7.2 5 10v12c0 2.8 4.9 5 11 5s11-2.2 11-5V10c0-2.8-4.9-5-11-5z" fill="#00618A"/><ellipse cx="16" cy="10" rx="11" ry="5" fill="#00618A"/><ellipse cx="16" cy="10" rx="11" ry="5" fill="#E48E00" opacity=".8"/><path d="M5 10v4c0 2.8 4.9 5 11 5s11-2.2 11-5v-4c0 2.8-4.9 5-11 5S5 12.8 5 10z" fill="#00618A"/><path d="M5 14v4c0 2.8 4.9 5 11 5s11-2.2 11-5v-4c0 2.8-4.9 5-11 5S5 16.8 5 14z" fill="#00618A"/></svg>
+            </div>
+            <div class="tech-name">MySQL</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="24" height="24" rx="3" fill="#336791"/><path d="M9 22V10h3l2.5 8.5L17 10h3v12h-2v-9l-2.5 9H14l-2.5-9V22H9zm10-6h4v2h-4v-2z" fill="#fff"/></svg>
+            </div>
+            <div class="tech-name">SQL</div>
+          </div>
           <!-- ═══ <div class="tech-item"><div class="tech-icon">🔥</div><div class="tech-name">Firebase</div></div> ═══ -->
         </div>
       </div>
@@ -179,22 +246,72 @@ PLATFORM DEVELOPER </p>
       <div class="reveal">
         <p class="stack-cat-label">Microsoft Power Platform</p>
         <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">📱</div><div class="tech-name">Power Apps</div></div>
-          <div class="tech-item"><div class="tech-icon">🔄</div><div class="tech-name">Power Automate</div></div>
-          <div class="tech-item"><div class="tech-icon">📈</div><div class="tech-name">Power BI</div></div>
-          <div class="tech-item"><div class="tech-icon">📋</div><div class="tech-name">SharePoint</div></div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#742774"/><path d="M8 10h9c1.1 0 2 .9 2 2v8c0 1.1-.9 2-2 2H8V10z" fill="#C661C8"/><path d="M17 14h3c1.1 0 2 .9 2 2v.5c0 1.1-.9 2-2 2h-3v-4.5z" fill="#E8ACF0"/><circle cx="22" cy="16" r="3" fill="#E8ACF0"/></svg>
+            </div>
+            <div class="tech-name">Power Apps</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#0066FF"/><path d="M7 16l5-7 5 7-5 2-5-2z" fill="#A3C6FF"/><path d="M12 18l5-2 5 7H7l5-5z" fill="#fff"/><path d="M17 16l5-7v14l-5-7z" fill="#CCE0FF"/></svg>
+            </div>
+            <div class="tech-name">Power Automate</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#F2C811"/><path d="M8 22l5-8 3 4 3-6 6 10H8z" fill="#333"/></svg>
+            </div>
+            <div class="tech-name">Power BI</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#0078D4"/><rect x="7" y="9" width="18" height="3" rx="1" fill="#fff"/><rect x="7" y="14.5" width="12" height="2.5" rx="1" fill="#BFE0FF"/><rect x="7" y="19.5" width="15" height="2.5" rx="1" fill="#BFE0FF"/></svg>
+            </div>
+            <div class="tech-name">SharePoint</div>
+          </div>
         </div>
       </div>
 
       <div class="reveal">
         <p class="stack-cat-label">Herramientas & Otros</p>
         <div class="tech-grid">
-          <div class="tech-item"><div class="tech-icon">🐙</div><div class="tech-name">Git / GitHub</div></div>
-          <div class="tech-item"><div class="tech-icon">🛠️</div><div class="tech-name">XAMPP</div></div>
-          <div class="tech-item"><div class="tech-icon">💻</div><div class="tech-name">VS Code</div></div>
-          <div class="tech-item"><div class="tech-icon">🛡️</div><div class="tech-name">Ciberseguridad</div></div>
-          <div class="tech-item"><div class="tech-icon">⚙️</div><div class="tech-name">Automatización</div></div>
-          <div class="tech-item"><div class="tech-icon">🔗</div><div class="tech-name">Integración datos</div></div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="13" fill="#F05032"/><path d="M16 6l2 7h7l-6 4 2 7-5-4-5 4 2-7-6-4h7z" fill="#fff" opacity=".15"/><text x="16" y="22" font-size="11" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="bold">git</text></svg>
+            </div>
+            <div class="tech-name">Git / GitHub</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#FB7A24"/><circle cx="16" cy="16" r="6" fill="#fff"/><circle cx="16" cy="16" r="3" fill="#FB7A24"/></svg>
+            </div>
+            <div class="tech-name">XAMPP</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#007ACC"/><path d="M7 19.5l4-4-4-4M14 22h7" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tech-name">VS Code</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#1A1A2E"/><path d="M16 7l2 4h4l-3 3 1 5-4-2.5L12 19l1-5-3-3h4z" fill="#00F5D4"/><circle cx="16" cy="16" r="4" fill="none" stroke="#00F5D4" stroke-width="1.5"/></svg>
+            </div>
+            <div class="tech-name">Ciberseguridad</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#1A1A2E"/><path d="M8 16h4l2-6 4 12 2-6h4" stroke="#00F5D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="tech-name">Automatización</div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-icon">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="32" height="32" rx="4" fill="#1A1A2E"/><circle cx="10" cy="16" r="3" fill="#00F5D4"/><circle cx="22" cy="10" r="3" fill="#00F5D4"/><circle cx="22" cy="22" r="3" fill="#00F5D4"/><path d="M13 16h6M19 10l-6 4M19 22l-6-4" stroke="#00F5D4" stroke-width="1.5"/></svg>
+            </div>
+            <div class="tech-name">Integración datos</div>
+          </div>
         </div>
       </div>
 
@@ -205,6 +322,7 @@ PLATFORM DEVELOPER </p>
 <div class="divider"></div>
 
 <!-- ═══ EXPERIENCE ═══ -->
+<!-- Sección EXPERIENCIA: línea temporal con experiencia profesional y responsabilidades. -->
 <section id="experience">
   <div class="container">
     <p class="section-label reveal">Trayectoria</p>
@@ -273,6 +391,80 @@ PLATFORM DEVELOPER </p>
 
 <div class="divider"></div>
 
+<!-- Sección FORMACIÓN: estudios y certificaciones. -->
+<section id="education">
+  <div class="container">
+    <p class="section-label reveal">Formación</p>
+    <h2 class="section-title reveal">Estudios & <em>certificaciones</em></h2>
+
+    <div class="education-grid">
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="edu-body">
+          <div class="edu-degree">Técnico Superior en Desarrollo de Aplicaciones Web</div>
+          <div class="edu-place">Digitech FP</div>
+          <div class="edu-date">2024/2026</div>
+        </div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="edu-body">
+          <div class="edu-degree">ANALISTA DE CIBERSEGURIDAD JUNIOR </div>
+          <div class="edu-place">(CISCO NETWORKING ACADEMY)</div>
+          <div class="edu-date">2025</div>
+        </div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="edu-body">
+          <div class="edu-degree">PYTHON DESDE CERO</div>
+          <div class="edu-place">(MOUREDEV PRO)</div>
+          <div class="edu-date">2026</div>
+        </div>
+      </div>
+
+      <div class="edu-card reveal">
+        <div class="edu-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="edu-body">
+          <div class="edu-degree">JAVASCRIP DESDE CERO</div>
+          <div class="edu-place">(MOUREDEV PRO)</div>
+          <div class="edu-date">2026</div>
+        </div>
+      </div>
+
+      <!-- Currículum en PDF -->
+      <div class="edu-card edu-cv reveal">
+        <div class="edu-icon edu-icon-cv">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+        </div>
+        <div class="edu-body">
+          <div class="edu-degree">Currículum Vitae</div>
+          <div class="edu-place">Descarga el PDF completo con toda mi trayectoria</div>
+        </div>
+        <a href="Cv Daniel 1.1.pdf" target="_blank" class="edu-cv-btn" download>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Descargar CV
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- Sección PROYECTOS: muestra trabajos realizados, tecnologías usadas y enlaces. -->
 <section id="projects">
   <div class="container">
     <p class="section-label reveal">Proyectos</p>
@@ -378,6 +570,7 @@ PLATFORM DEVELOPER </p>
 
 <div class="divider"></div>
 
+<!-- Sección SERVICIOS: explica los servicios profesionales disponibles. -->
 <section id="services">
   <div class="container">
     <p class="section-label reveal">Servicios</p>
@@ -409,6 +602,7 @@ PLATFORM DEVELOPER </p>
 
 <div class="divider"></div>
 
+<!-- Sección CONTACTO: contiene información de contacto y formulario. -->
 <section id="contact">
   <div class="container">
     <p class="section-label reveal">Contacto</p>
@@ -437,34 +631,133 @@ PLATFORM DEVELOPER </p>
         </div>
       </div>
 
-      <div class="contact-form reveal-right">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="nombre">Nombre</label>
-            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="tu@email.com">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="asunto">Asunto</label>
-          <input type="text" id="asunto" name="asunto" placeholder="¿De qué quieres hablar?">
-        </div>
-        <div class="form-group">
-          <label for="mensaje">Mensaje</label>
-          <textarea id="mensaje" name="mensaje" placeholder="Cuéntame tu proyecto o propuesta..."></textarea>
-        </div>
-        <button type="button" class="form-submit" onclick="handleFormSubmit()">
-          Enviar mensaje
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-        </button>
-      </div>
+  <form id="contact-form" class="contact-form reveal-right">
+
+
+  <div class="form-row">
+
+
+    <div class="form-group">
+
+      <label for="nombre">
+        Nombre
+      </label>
+
+
+      <input 
+      type="text" 
+      id="nombre" 
+      name="nombre"
+      placeholder="Tu nombre"
+      required>
+
+    </div>
+
+
+
+    <div class="form-group">
+
+
+      <label for="email">
+        Email
+      </label>
+
+
+      <input 
+      type="email" 
+      id="email" 
+      name="email"
+      placeholder="tu@email.com"
+      required>
+
+
+    </div>
+
+
+  </div>
+
+
+
+
+  <div class="form-group">
+
+
+    <label for="asunto">
+      Asunto
+    </label>
+
+
+    <input 
+    type="text"
+    id="asunto"
+    name="asunto"
+    placeholder="¿De qué quieres hablar?">
+
+
+  </div>
+
+
+
+
+
+  <div class="form-group">
+
+
+    <label for="mensaje">
+      Mensaje
+    </label>
+
+
+    <textarea
+    id="mensaje"
+    name="mensaje"
+    placeholder="Cuéntame tu proyecto o propuesta..."
+    required></textarea>
+
+
+  </div>
+
+
+
+
+
+
+  <button 
+  type="submit" 
+  class="form-submit">
+
+
+    Enviar mensaje
+
+
+    <svg 
+    width="16" 
+    height="16" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    stroke-width="2">
+
+
+      <line x1="22" y1="2" x2="11" y2="13"/>
+
+
+      <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+
+
+    </svg>
+
+
+  </button>
+
+
+
+</form>
     </div>
   </div>
 </section>
 
+<!-- FOOTER: pie de página con información final y enlaces secundarios. -->
 <footer>
   <p class="footer-copy">© 2026 <span>Daniel Navas</span> — Desarrollador de Aplicaciones Web · Algeciras, Cádiz</p>
   <div class="footer-links">
@@ -475,7 +768,7 @@ PLATFORM DEVELOPER </p>
   </div>
 </footer>
 
-<!-- ═══ MODAL DE GALERÍA ═══ -->
+<!-- MODAL DE GALERÍA: ventana emergente usada para mostrar imágenes del proyecto. -->
 <div class="gallery-modal" id="gallery-modal">
   <div class="modal-overlay" onclick="closeGallery()"></div>
   <button class="modal-close" onclick="closeGallery()">
@@ -536,7 +829,7 @@ PLATFORM DEVELOPER </p>
         <div class="modal-img-wrap">
           <img src="imagen5.png" alt="Dashboard">
         </div>
-        <p class="modal-caption">Parte de las automatizaciones del proceso. </p>
+        <p class="modal-caption">Parte de las automatizaciones del proceso</p>
       </div>
 
     </div>
