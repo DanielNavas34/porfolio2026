@@ -316,7 +316,14 @@ window.addEventListener('scroll', () => {
 /* ═══════════════════════════════════════════
    FORM (Actualizado para abrir cliente de correo)
 ═══════════════════════════════════════════ */
-function handleFormSubmit() {
+
+// Escuchamos el evento 'submit' del formulario para activar la función
+document.getElementById('contact-form')?.addEventListener('submit', handleFormSubmit);
+
+function handleFormSubmit(e) {
+  // Evita que la página se recargue al enviar
+  e.preventDefault();
+
   const nombre = document.getElementById('nombre').value;
   const email = document.getElementById('email').value;
   const asunto = document.getElementById('asunto').value;
@@ -348,54 +355,6 @@ function handleFormSubmit() {
     document.getElementById('mensaje').value = '';
   }, 3000);
 }
-
-/* ═══════════════════════════════════════════
-   MODAL GALLERY LOGIC (Actualizado robusto)
-═══════════════════════════════════════════ */
-function openGallery(projectId) {
-  const modal = document.getElementById('gallery-modal');
-  if (!modal) return;
-  
-  const modalContent = modal.querySelector('.modal-content');
-  const modalImages = modal.querySelectorAll('.modal-item');
-
-  modal.classList.add('active');
-  
-  // Bloquear el scroll de la página de fondo
-  document.body.style.overflow = 'hidden';
-
-  // Animación GSAP para la entrada del modal
-  gsap.to(modal, { opacity: 1, duration: 0.4, ease: 'power2.out' });
-  
-  // Animación GSAP para el contenedor (escala desde abajo)
-  gsap.fromTo(modalContent, 
-    { y: 50, scale: 0.95, opacity: 0 }, 
-    { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.2)', delay: 0.1 }
-  );
-
-  // Animación escalonada para las fotos
-  gsap.fromTo(modalImages,
-    { y: 30, opacity: 0 },
-    { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'power2.out', delay: 0.3 }
-  );
-}
-
-function closeGallery() {
-  const modal = document.getElementById('gallery-modal');
-  if (!modal) return;
-  
-  const modalContent = modal.querySelector('.modal-content');
-  
-  // Desbloquear el scroll
-  document.body.style.overflow = '';
-  
-  // Animación de salida
-  gsap.to(modalContent, { y: 30, scale: 0.95, opacity: 0, duration: 0.3, ease: 'power2.in' });
-  gsap.to(modal, { opacity: 0, duration: 0.4, ease: 'power2.in', delay: 0.1, onComplete: () => {
-    modal.classList.remove('active');
-  }});
-}
-
 // Cerrar modal con la tecla ESC
 document.addEventListener('keydown', (e) => {
   const modal = document.getElementById('gallery-modal');
