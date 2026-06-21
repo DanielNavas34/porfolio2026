@@ -1046,9 +1046,11 @@ footer {
   justify-content: center;
   pointer-events: none;
   opacity: 0;
+   transition: opacity 0.4s ease;
 }
 .gallery-modal.active {
   pointer-events: auto;
+   opacity: 1;
 }
 .modal-overlay {
   position: absolute;
