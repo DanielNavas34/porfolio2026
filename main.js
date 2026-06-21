@@ -355,7 +355,55 @@ function handleFormSubmit(e) {
     document.getElementById('mensaje').value = '';
   }, 3000);
 }
-// Cerrar modal con la tecla ESC
+/* ═══════════════════════════════════════════
+   MODAL GALLERY LOGIC (Corregido y robusto)
+═══════════════════════════════════════════ */
+function openGallery(projectId) {
+  const modal = document.getElementById('gallery-modal');
+  if (!modal) return;
+  
+  const modalContent = modal.querySelector('.modal-content');
+  const modalImages = modal.querySelectorAll('.modal-item');
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+
+  // Animación GSAP entrada fondo
+  gsap.to(modal, { opacity: 1, duration: 0.4, ease: 'power2.out' });
+  
+  // Animación GSAP entrada contenedor
+  gsap.fromTo(modalContent, 
+    { y: 50, scale: 0.95, opacity: 0 }, 
+    { y: 0, scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.2)', delay: 0.1 }
+  );
+
+  // Animación escalonada fotos
+  gsap.fromTo(modalImages,
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'power2.out', delay: 0.3 }
+  );
+}
+
+function closeGallery() {
+  const modal = document.getElementById('gallery-modal');
+  if (!modal) return;
+  
+  const modalContent = modal.querySelector('.modal-content');
+
+  // Animación de salida elegante antes de quitar la clase active
+  gsap.to(modalContent, { y: 30, scale: 0.95, opacity: 0, duration: 0.3, ease: 'power2.in' });
+  gsap.to(modal, { 
+    opacity: 0, 
+    duration: 0.3, 
+    ease: 'power2.in',
+    onComplete: () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = ''; // Restaurar scroll
+    }
+  });
+}
+
+// Escuchador global para la tecla ESC (fuera de las funciones)
 document.addEventListener('keydown', (e) => {
   const modal = document.getElementById('gallery-modal');
   if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
