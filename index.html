@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel Navas | Desarrollador Web Full Stack</title>
+  <meta name="description" content="Portfolio de Daniel Navas: desarrollo web Full Stack, automatización con Microsoft Power Platform y transformación digital. Algeciras, Cádiz.">
+  <meta name="author" content="Daniel Navas">
+  <link rel="canonical" href="https://danielnavas.dev/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://danielnavas.dev/">
+  <meta property="og:title" content="Daniel Navas | Desarrollador Web Full Stack">
+  <meta property="og:description" content="Aplicaciones web, automatización empresarial y digitalización de procesos.">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Saltar al contenido</a>
+
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">Daniel Navas</a>
+      <nav aria-label="Principal">
+        <ul class="nav-desktop">
+          <li><a href="#about" data-nav-section data-i18n="nav_about">Sobre mí</a></li>
+          <li><a href="#projects" data-nav-section data-i18n="nav_projects">Proyectos</a></li>
+          <li><a href="#stack" data-nav-section data-i18n="nav_stack">Stack</a></li>
+          <li><a href="#experience" data-nav-section data-i18n="nav_exp">Experiencia</a></li>
+          <li><a href="#education" data-nav-section data-i18n="nav_edu">Formación</a></li>
+          <li><a href="#services" data-nav-section data-i18n="nav_services">Servicios</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="lang-toggle" aria-label="Cambiar idioma">EN</button>
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar tema">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary d-mobile-only" data-i18n="nav_contact">Contactar</a>
+        <a href="#contact" class="btn btn-primary btn-contact-desktop" data-nav-section data-i18n="nav_contact">Contactar</a>
+        <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Abrir menú"><span></span></button>
+      </div>
+    </div>
+    <div class="nav-panel" id="nav-panel" aria-label="Menú móvil">
+      <a href="#about" data-nav-section data-i18n="nav_about">Sobre mí</a>
+      <a href="#projects" data-nav-section data-i18n="nav_projects">Proyectos</a>
+      <a href="#stack" data-nav-section data-i18n="nav_stack">Stack</a>
+      <a href="#experience" data-nav-section data-i18n="nav_exp">Experiencia</a>
+      <a href="#education" data-nav-section data-i18n="nav_edu">Formación</a>
+      <a href="#services" data-nav-section data-i18n="nav_services">Servicios</a>
+      <a href="#contact" data-nav-section data-i18n="nav_contact">Contactar</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="hero" class="section hero">
+      <div class="hero-ambient" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="orb orb-c"></span>
+      </div>
+      <div class="container hero-grid">
+        <div class="reveal reveal-hero">
+          <p class="hero-badge" data-i18n="hero_badge">Disponible para trabajar</p>
+          <h1><span data-i18n="hero_title">Desarrollador Web Full Stack</span></h1>
+          <p class="hero-lead" data-i18n="hero_lead">Creo aplicaciones web, automatizaciones empresariales y herramientas digitales que resuelven problemas reales en operaciones y negocio.</p>
+          <p class="hero-desc" data-i18n="hero_desc">Daniel Navas · Algeciras, Cádiz. Técnico Superior en DAW, orientado al desarrollo Full Stack, Microsoft Power Platform y la transformación digital.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">Ver proyectos</a>
+            <a href="CV_Daniel_Guerrero_Navas_11.10.pdf" class="btn btn-secondary" download data-i18n="hero_btn_cv">Descargar CV</a>
+            <a href="https://www.linkedin.com/in/daniel--guerrero-navas/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_linkedin">LinkedIn</a>
+            <a href="#contact" class="btn btn-ghost" data-i18n="hero_btn_contact">Contactar</a>
+          </div>
+          <div class="hero-meta">
+            <span>Algeciras, Cádiz · España</span>
+            <span data-i18n="hero_meta_stack">Full Stack · Power Platform · Automatización</span>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-scale" id="hero-visual" aria-hidden="true">
+          <div class="hero-card float-card" style="--float-delay: 0s">
+            <h3>Terminal Control</h3>
+            <p>Incidencias · formularios · automatizaciones</p>
+            <div class="hero-tags">
+              <span class="tag">Power Apps</span>
+              <span class="tag">Power Automate</span>
+              <span class="tag">SharePoint</span>
+            </div>
+          </div>
+          <div class="hero-card float-card" style="--float-delay: 0.6s">
+            <h3>Stack web</h3>
+            <p>PHP · JavaScript · MySQL · Laravel</p>
+            <div class="hero-tags">
+              <span class="tag">API REST</span>
+              <span class="tag">MVC</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <p class="section-label reveal" data-i18n="about_label">Sobre mí</p>
+        <h2 class="section-title reveal" data-i18n="about_title">Desarrollo web con visión de negocio</h2>
+        <p class="section-intro reveal" data-i18n="about_p1">Soy desarrollador de aplicaciones web con formación en Frontend, Backend, bases de datos y automatización de procesos.</p>
+        <p class="section-intro reveal" style="margin-top:-1.5rem" data-i18n="about_p2">En APM Terminals / Maersk he aplicado Power Platform para digitalizar flujos operativos.</p>
+        <a href="#experience" class="btn btn-ghost reveal" data-i18n="about_link">Ver experiencia</a>
+      </div>
+    </section>
+
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <p class="section-label reveal" data-i18n="projects_label">Portfolio</p>
+        <h2 class="section-title reveal" data-i18n="projects_title">Proyectos destacados</h2>
+        <p class="section-intro reveal" data-i18n="projects_intro">Una selección de trabajos profesionales, académicos y personales.</p>
+
+        <div class="grid-2 stagger-group">
+          <article class="card project-card reveal hover-lift project-card--apm">
+            <button type="button" class="project-thumb project-thumb--photo" onclick="openGallery()" aria-label="Abrir galería Terminal Control">
+              <img src="assets/gallery/image1.png" alt="" data-i18n-alt="gal_1_alt" loading="lazy" width="960" height="600">
+            </button>
+            <div class="project-mini-gallery" aria-label="Vista previa de capturas">
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/image1.png')"><img src="assets/gallery/image1.png" alt="" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/image1.2.png')"><img src="assets/gallery/image1.2.png" alt="" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen2.png')"><img src="assets/gallery/imagen2.png" alt="" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen3.png')"><img src="assets/gallery/imagen3.png" alt="" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen4.png')"><img src="assets/gallery/imagen4.png" alt="" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen5.png')"><img src="assets/gallery/imagen5.png" alt="" loading="lazy"></button>
+            </div>
+            <div class="project-head">
+              <span class="pill pill-accent" data-i18n="proj_type_pro">Profesional</span>
+              <span class="pill" data-i18n="status_done">Completado</span>
+            </div>
+            <h3 data-i18n="proj1_name">Terminal Control · Ecosistema digital APM</h3>
+            <dl>
+              <div><dt data-i18n="need_label">Necesidad</dt><dd data-i18n="proj1_problem">Necesidad de centralizar incidencias operativas.</dd></div>
+              <div><dt data-i18n="solution_label">Solución</dt><dd data-i18n="proj1_solution">Super app de operaciones con gestión de incidencias.</dd></div>
+              <div><dt data-i18n="feat_label">Funcionalidades</dt><dd data-i18n="proj1_features">Formularios operativos y notificaciones.</dd></div>
+              <div><dt data-i18n="tech_label">Tecnologías</dt><dd>Power Apps, Power Automate, Power BI, SharePoint, Firebase</dd></div>
+              <div class="project-impact-row">
+                <dt data-i18n="impact_label">Impacto</dt>
+                <dd>
+                  <ul class="project-impact-list">
+                    <li data-i18n="proj1_m1">Varios módulos de formularios operativos (incidencias, restows, comunicaciones a clientes).</li>
+                    <li data-i18n="proj1_m2">Uso diario por equipos de operaciones en terminal: decenas de usuarios internos.</li>
+                    <li data-i18n="proj1_m3">Flujos Power Automate que reducen cadenas de email manual y centralizan la trazabilidad en SharePoint.</li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+            <div class="project-actions">
+              <button type="button" class="btn btn-primary" onclick="openGallery()" data-i18n="proj1_btn">Ver galería</button>
+            </div>
+          </article>
+
+          <article class="card project-card reveal hover-lift">
+            <a href="https://danielnavas34.github.io/proyecto_web_bar_malaga/" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
+              <img src="assets/gallery/la-malaguena.jpg" alt="" data-i18n-alt="proj2_thumb_alt" loading="lazy" width="960" height="600">
+            </a>
+            <div class="project-head">
+              <span class="pill pill-accent" data-i18n="proj_type_acad">Académico</span>
+              <span class="pill" data-i18n="status_done">Completado</span>
+            </div>
+            <h3 data-i18n="proj2_name">App web de hostelería</h3>
+            <dl>
+              <div><dt data-i18n="need_label">Necesidad</dt><dd data-i18n="proj2_problem">Digitalizar productos y procesos internos.</dd></div>
+              <div><dt data-i18n="solution_label">Solución</dt><dd data-i18n="proj2_solution">Aplicación web PHP y MySQL.</dd></div>
+              <div><dt data-i18n="feat_label">Funcionalidades</dt><dd data-i18n="proj2_features">Panel de productos y MVC.</dd></div>
+            </dl>
+            <div class="project-actions">
+              <a href="https://danielnavas34.github.io/proyecto_web_bar_malaga/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="link_demo">Demo</a>
+              <a href="https://github.com/danielnavas34/proyecto_web_bar_malaga" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card project-card reveal hover-lift">
+            <a href="https://ligatenisalgeciras.infinityfree.io/?i=1" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
+              <img src="assets/gallery/liga-tenis.jpg" alt="" data-i18n-alt="proj3_thumb_alt" loading="lazy" width="960" height="600">
+            </a>
+            <div class="project-head">
+              <span class="pill" data-i18n="proj_type_personal">Personal</span>
+              <span class="pill" data-i18n="status_dev">En desarrollo</span>
+            </div>
+            <h3 data-i18n="proj3_name">Liga del Tenista</h3>
+            <dl>
+              <div><dt data-i18n="need_label">Necesidad</dt><dd data-i18n="proj3_problem">Organizar ligas y torneos locales.</dd></div>
+              <div><dt data-i18n="solution_label">Solución</dt><dd data-i18n="proj3_solution">Plataforma web para competiciones.</dd></div>
+              <div><dt data-i18n="feat_label">Funcionalidades</dt><dd data-i18n="proj3_features">Gestión de ligas y Docker.</dd></div>
+            </dl>
+            <div class="project-actions">
+              <a href="https://ligatenisalgeciras.infinityfree.io/?i=1" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="proj3_btn">Servidor de pruebas</a>
+            </div>
+          </article>
+
+          <article class="card project-card reveal hover-lift">
+            <a href="https://danielnavas34.github.io/MerryChristmasEOIAlgeciras/" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
+              <img src="assets/gallery/eoi.jpg" alt="" data-i18n-alt="proj4_thumb_alt" loading="lazy" width="960" height="600">
+            </a>
+            <div class="project-head">
+              <span class="pill" data-i18n="proj_type_acad">Académico</span>
+              <span class="pill" data-i18n="status_done">Completado</span>
+            </div>
+            <h3 data-i18n="proj4_name">Postal digital EOI Algeciras</h3>
+            <dl>
+              <div><dt data-i18n="need_label">Necesidad</dt><dd data-i18n="proj4_problem">Concurso creativo con diseño accesible.</dd></div>
+              <div><dt data-i18n="solution_label">Solución</dt><dd data-i18n="proj4_solution">Postal interactiva ganadora.</dd></div>
+            </dl>
+            <div class="project-actions">
+              <a href="https://danielnavas34.github.io/MerryChristmasEOIAlgeciras/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="link_demo">Demo</a>
+              <a href="https://github.com/danielnavas34/MerryChristmasEOIAlgeciras" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
+            </div>
+          </article>
+
+          <article class="card project-card reveal hover-lift">
+            <a href="https://danielnavas34.github.io/Fruteria/" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
+              <img src="assets/gallery/fruteria.jpg" alt="" data-i18n-alt="proj5_thumb_alt" loading="lazy" width="960" height="600">
+            </a>
+            <div class="project-head">
+              <span class="pill" data-i18n="proj_type_personal">Personal</span>
+              <span class="pill" data-i18n="status_dev">En desarrollo</span>
+            </div>
+            <h3 data-i18n="proj5_name">Web Frutería Málaga</h3>
+            <dl>
+              <div><dt data-i18n="need_label">Necesidad</dt><dd data-i18n="proj5_problem">Presencia online para comercio local.</dd></div>
+              <div><dt data-i18n="solution_label">Solución</dt><dd data-i18n="proj5_solution">Sitio promocional responsive.</dd></div>
+            </dl>
+            <div class="project-actions">
+              <a href="https://danielnavas34.github.io/Fruteria/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="link_demo">Demo</a>
+              <a href="https://github.com/danielnavas34/Fruteria" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-i18n="link_github">GitHub</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack" class="section">
+      <div class="container">
+        <p class="section-label reveal" data-i18n="stack_label">Stack</p>
+        <h2 class="section-title reveal" data-i18n="stack_title">Stack aplicado a proyectos reales</h2>
+        <p class="section-intro reveal" data-i18n="stack_intro">Áreas en las que combino desarrollo, automatización, datos e infraestructura.</p>
+
+        <div class="grid-2">
+          <article class="card stack-block reveal">
+            <h3 data-i18n="stack_fe_title">Frontend</h3>
+            <p class="text-muted" data-i18n="stack_fe_desc">Interfaces legibles y responsive.</p>
+            <div class="tag-list"><span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span></div>
+          </article>
+          <article class="card stack-block stack-backend reveal span-full hover-lift">
+            <div class="stack-backend-head">
+              <div>
+                <h3 data-i18n="stack_be_title">Backend</h3>
+                <p class="text-muted" data-i18n="stack_be_desc">Lógica de negocio en aplicaciones web.</p>
+                <div class="tag-list"><span class="tag tag-animated">PHP</span><span class="tag tag-animated">Java</span><span class="tag tag-animated">Python</span><span class="tag tag-animated">JavaScript</span><span class="tag tag-animated">Node.js</span><span class="tag tag-animated">Express</span></div>
+              </div>
+            </div>
+            <div class="code-showcase">
+              <p class="code-showcase-label" data-i18n="stack_be_code_label">Ejemplos de lógica</p>
+              <p class="text-muted code-showcase-hint" data-i18n="stack_be_code_hint">Desplegables con fragmentos comentados: qué hace el código y por qué.</p>
+              <div class="code-accordion">
+                <details class="code-panel" data-code-panel>
+                  <summary class="code-panel-summary">
+                    <span class="code-panel-index">01</span>
+                    <span class="code-panel-title" data-i18n="code1_title">DOM, localStorage, BOM y ventanas</span>
+                    <span class="code-panel-chevron" aria-hidden="true"></span>
+                  </summary>
+                  <div class="code-panel-body">
+                    <p class="code-panel-desc" data-i18n="code1_desc">Script de interfaz que persiste preferencias de usuario, personaliza la experiencia según la hora, consulta el BOM (navigator, screen), genera listas dinámicas y abre una ventana de ayuda con <code>postMessage</code>.</p>
+                    <ul class="code-panel-points">
+                      <li data-i18n="code1_p1">Recuperación de nombre y color desde <code>localStorage</code>.</li>
+                      <li data-i18n="code1_p2">Saludo contextual (mañana / tarde / noche) con fecha localizada.</li>
+                      <li data-i18n="code1_p3">Eventos <code>input</code> para guardar preferencias al instante.</li>
+                      <li data-i18n="code1_p4">Función documentada con JSDoc que rellena la lista con datos del navegador.</li>
+                      <li data-i18n="code1_p5">Comunicación entre ventanas: <code>window.open</code> + <code>postMessage</code> retardado.</li>
+                    </ul>
+                    <div class="code-block-wrap">
+                      <div class="code-block-toolbar">
+                        <span class="code-block-lang">JavaScript</span>
+                        <button type="button" class="btn btn-ghost code-copy-btn" data-code-copy data-i18n="code_copy_btn">Copiar código</button>
+                      </div>
+                      <pre class="code-block" tabindex="0"><code data-code-file="assets/code/01-dom-bom-localStorage.js"></code></pre>
+                    </div>
+                  </div>
+                </details>
+                <details class="code-panel" data-code-panel>
+                  <summary class="code-panel-summary">
+                    <span class="code-panel-index">02</span>
+                    <span class="code-panel-title" data-i18n="code2_title">API REST con Node.js y Express</span>
+                    <span class="code-panel-chevron" aria-hidden="true"></span>
+                  </summary>
+                  <div class="code-panel-body">
+                    <p class="code-panel-desc" data-i18n="code2_desc">Servidor Express con CORS, JSON y SQLite: validación fiscal española, registro de clientes, cálculo de simulaciones en backend e historial por cliente.</p>
+                    <ul class="code-panel-points">
+                      <li data-i18n="code2_p1">Middleware <code>express.json</code> y <code>cors</code> para API consumible desde frontend.</li>
+                      <li data-i18n="code2_p2">Validación de DNI, NIE y CIF antes de persistir clientes en España.</li>
+                      <li data-i18n="code2_p3"><code>POST /customers</code>: idempotencia por <code>tax_id</code> (recuperar o crear).</li>
+                      <li data-i18n="code2_p4"><code>POST /simulations</code>: pricing por tramos, IVA 21 % y conversión de divisa validada en servidor.</li>
+                      <li data-i18n="code2_p5"><code>GET /simulations/customer/:id</code>: historial ordenado desde la base de datos.</li>
+                    </ul>
+                    <div class="code-block-wrap">
+                      <div class="code-block-toolbar">
+                        <span class="code-block-lang">Node.js · Express</span>
+                        <button type="button" class="btn btn-ghost code-copy-btn" data-code-copy data-i18n="code_copy_btn">Copiar código</button>
+                      </div>
+                      <pre class="code-block" tabindex="0"><code data-code-file="assets/code/02-express-api.js"></code></pre>
+                    </div>
+                  </div>
+                </details>
+                <details class="code-panel" data-code-panel>
+                  <summary class="code-panel-summary">
+                    <span class="code-panel-index">03</span>
+                    <span class="code-panel-title" data-i18n="code3_title">Login seguro con PHP y sesiones</span>
+                    <span class="code-panel-chevron" aria-hidden="true"></span>
+                  </summary>
+                  <div class="code-panel-body">
+                    <p class="code-panel-desc" data-i18n="code3_desc">Autenticación en servidor con PDO preparado, CSRF, límites anti fuerza bruta, mitigación de timing attacks y redirecciones seguras tras el login.</p>
+                    <ul class="code-panel-points">
+                      <li data-i18n="code3_p1">Token CSRF obligatorio en <code>POST</code> antes de validar credenciales.</li>
+                      <li data-i18n="code3_p2">Rate limiting por IP y email (ventana 5 min) para CG-NAT y password spraying.</li>
+                      <li data-i18n="code3_p3"><code>password_verify</code> con hash dummy si el usuario no existe (tiempo constante).</li>
+                      <li data-i18n="code3_p4"><code>session_regenerate_id</code> y comprobación de cuenta activa / email verificado.</li>
+                      <li data-i18n="code3_p5">Anti open redirect: solo rutas relativas internas en <code>redirect_after_login</code>.</li>
+                    </ul>
+                    <div class="code-block-wrap">
+                      <div class="code-block-toolbar">
+                        <span class="code-block-lang">PHP · MySQL</span>
+                        <button type="button" class="btn btn-ghost code-copy-btn" data-code-copy data-i18n="code_copy_btn">Copiar código</button>
+                      </div>
+                      <pre class="code-block" tabindex="0"><code data-code-file="assets/code/03-php-login.php"></code></pre>
+                    </div>
+                  </div>
+                </details>
+                <!-- Reservados: descomentar al añadir code4_* / assets/code/04-* y code5_* / 05-* -->
+                <!--
+                <details class="code-panel code-panel--soon" disabled>
+                  <summary class="code-panel-summary">
+                    <span class="code-panel-index">04</span>
+                    <span class="code-panel-title" data-i18n="code_soon_title">Próximo ejemplo</span>
+                  </summary>
+                </details>
+                <details class="code-panel code-panel--soon" disabled>
+                  <summary class="code-panel-summary">
+                    <span class="code-panel-index">05</span>
+                    <span class="code-panel-title" data-i18n="code_soon_title">Próximo ejemplo</span>
+                  </summary>
+                </details>
+                -->
+              </div>
+            </div>
+          </article>
+          <article class="card stack-block reveal">
+            <h3 data-i18n="stack_fw_title">Frameworks y arquitectura</h3>
+            <p class="text-muted" data-i18n="stack_fw_desc">Laravel, Angular, MVC y APIs REST.</p>
+            <div class="tag-list"><span class="tag">Laravel</span><span class="tag">Angular</span><span class="tag">MVC</span><span class="tag">API REST</span></div>
+          </article>
+          <article class="card stack-block reveal">
+            <h3 data-i18n="stack_db_title">Bases de datos</h3>
+            <p class="text-muted" data-i18n="stack_db_desc">Modelado con MySQL, SQL y Firebase.</p>
+            <div class="tag-list"><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">Firebase</span></div>
+          </article>
+          <article class="card stack-block reveal">
+            <h3 data-i18n="stack_auto_title">Automatización y analítica</h3>
+            <p class="text-muted" data-i18n="stack_auto_desc">Power Platform e integración de datos.</p>
+            <div class="tag-list"><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Power BI</span><span class="tag">SharePoint</span></div>
+          </article>
+          <article class="card stack-block reveal">
+            <h3 data-i18n="stack_ops_title">Herramientas e infraestructura</h3>
+            <p class="text-muted" data-i18n="stack_ops_desc">Git, Docker, Linux, Apache, XAMPP, VS Code.</p>
+            <div class="tag-list"><span class="tag">Git / GitHub</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">XAMPP</span><span class="tag">VS Code</span></div>
+          </article>
+          <article class="card stack-block reveal" style="grid-column:1/-1">
+            <h3 data-i18n="stack_other_title">Otros conocimientos</h3>
+            <p class="text-muted" data-i18n="stack_other_desc">Ciberseguridad, automatización de procesos y gestión de proyectos tecnológicos.</p>
+            <div class="tag-list"><span class="tag">Ciberseguridad</span><span class="tag">Automatización</span><span class="tag">Gestión de proyectos</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-alt">
+      <div class="container">
+        <p class="section-label reveal" data-i18n="exp_label">Trayectoria</p>
+        <h2 class="section-title reveal" data-i18n="exp_title">Experiencia profesional</h2>
+        <div class="timeline">
+          <article class="card reveal">
+            <span class="timeline-period" data-i18n="exp1_period">2026</span>
+            <h3 data-i18n="exp1_company">APM Terminals / Maersk</h3>
+            <h4 class="accent" data-i18n="exp1_role">Prácticas · Transformación digital y automatización</h4>
+            <p class="text-muted" data-i18n="exp1_desc">Prácticas centradas en digitalizar procesos portuarios.</p>
+            <ul>
+              <li data-i18n="exp1_t1">Desarrollo de Terminal Control.</li>
+              <li data-i18n="exp1_t2">Automatización con Power Automate y Power Apps.</li>
+              <li data-i18n="exp1_t3">Dashboards con Power BI y SharePoint.</li>
+              <li data-i18n="exp1_t4">Firebase en el módulo correspondiente.</li>
+            </ul>
+            <p class="exp-impact-title" data-i18n="exp1_impact_title">Resultados (cualitativos)</p>
+            <ul class="exp-impact-list">
+              <li data-i18n="exp1_m1">Ecosistema con múltiples apps y automatizaciones conectadas a listas operativas.</li>
+              <li data-i18n="exp1_m2">Incidencias y avisos registrados en un solo flujo, con menos gestión dispersa por correo.</li>
+              <li data-i18n="exp1_m3">Informes e históricos accesibles para coordinación y comunicación con líneas operadoras.</li>
+            </ul>
+            <p style="margin-top:1rem">
+              <a href="APM%20TERMINALS.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="exp1_rec">Ver recomendación APM Terminals</a>
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="timeline-period" data-i18n="exp2_period">2015 — 2024</span>
+            <h3 data-i18n="exp2_company">Manzana Rota SL</h3>
+            <h4 class="accent" data-i18n="exp2_role">Especialista técnico y coordinador de SAT</h4>
+            <p class="text-muted" data-i18n="exp2_desc">Telecomunicaciones y reparación de electrónica de consumo.</p>
+            <ul>
+              <li data-i18n="exp2_t1">Coordinación de equipos de hasta 20 personas.</li>
+              <li data-i18n="exp2_t2">Gestión operativa, stock y KPIs.</li>
+              <li data-i18n="exp2_t3">Reparación avanzada y microsoldadura.</li>
+              <li data-i18n="exp2_t4">Atención al cliente e incidencias.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <p class="section-label reveal" data-i18n="edu_label">Formación</p>
+        <h2 class="section-title reveal" data-i18n="edu_title">Estudios y certificaciones</h2>
+        <div class="grid-3">
+          <article class="card reveal">
+            <h3 data-i18n="edu1_title">Técnico Superior DAW</h3>
+            <p class="text-muted" data-i18n="edu1_org">Digitech FP · 2024 — 2026</p>
+          </article>
+          <article class="card reveal">
+            <h3 data-i18n="edu2_title">Junior Cybersecurity Analyst</h3>
+            <p class="text-muted" data-i18n="edu2_org">Cisco Networking Academy · 2025</p>
+          </article>
+          <article class="card reveal">
+            <h3 data-i18n="edu3_title">Python desde cero</h3>
+            <p class="text-muted" data-i18n="edu3_org">MoureDev Pro · 2026</p>
+          </article>
+          <article class="card reveal">
+            <h3 data-i18n="edu4_title">JavaScript desde cero</h3>
+            <p class="text-muted" data-i18n="edu4_org">MoureDev Pro · 2026</p>
+          </article>
+          <article class="card reveal hover-lift">
+            <h3 data-i18n="edu5_title">Google Data Analytics</h3>
+            <p class="text-muted" data-i18n="edu5_org">Google Scholarships ES · En curso</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section section-alt">
+      <div class="container">
+        <p class="section-label reveal" data-i18n="serv_label">Servicios</p>
+        <h2 class="section-title reveal" data-i18n="serv_title">Qué puedo aportar</h2>
+        <p class="section-intro reveal" data-i18n="serv_intro">Colaboraciones para pymes y equipos que digitalizan procesos.</p>
+        <div class="grid-3">
+          <article class="card reveal"><h3 data-i18n="serv1_title">Aplicaciones web</h3><p class="text-muted" data-i18n="serv1_desc">Webs y herramientas a medida.</p></article>
+          <article class="card reveal"><h3 data-i18n="serv2_title">Automatización empresarial</h3><p class="text-muted" data-i18n="serv2_desc">Flujos con Power Platform.</p></article>
+          <article class="card reveal"><h3 data-i18n="serv3_title">Digitalización de procesos</h3><p class="text-muted" data-i18n="serv3_desc">Soluciones para equipos no técnicos.</p></article>
+          <article class="card reveal"><h3 data-i18n="serv4_title">Datos e informes</h3><p class="text-muted" data-i18n="serv4_desc">Dashboards Power BI.</p></article>
+          <article class="card reveal"><h3 data-i18n="serv5_title">Herramientas para negocios locales</h3><p class="text-muted" data-i18n="serv5_desc">Presencia web y paneles sencillos.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cta" class="section">
+      <div class="container reveal">
+        <div class="cta-band">
+          <h2 data-i18n="cta_title">¿Buscas un desarrollador junior con base Full Stack y experiencia operativa?</h2>
+          <p data-i18n="cta_desc">Puedo ayudarte con proyectos web, automatización o digitalización progresiva.</p>
+          <a href="#contact" class="btn btn-primary" data-i18n="cta_btn">Hablemos</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+      <div class="container contact-grid">
+        <div class="reveal">
+          <p class="section-label" data-i18n="contact_label">Contacto</p>
+          <h2 class="section-title" data-i18n="contact_title">Hablemos de tu proyecto</h2>
+          <p class="text-muted" data-i18n="contact_p">Disponible para oportunidades laborales y colaboraciones.</p>
+          <p class="text-muted">Algeciras, Cádiz — España</p>
+          <p class="text-muted" data-i18n="contact_avail">Disponible para trabajar</p>
+          <div class="contact-links">
+            <a href="CV_Daniel_Guerrero_Navas_11.10.pdf" class="btn btn-primary" download data-i18n="contact_cv">Descargar CV (PDF)</a>
+            <a href="https://www.linkedin.com/in/daniel--guerrero-navas/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://wa.me/34615500315" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a href="https://github.com/danielnavas34" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="mailto:danielnavas711900@gmail.com" class="btn btn-ghost">Email</a>
+          </div>
+        </div>
+        <form id="contact-form" class="contact-form card reveal" novalidate>
+          <label class="contact-form-honeypot" aria-hidden="true">
+            <span>No rellenar</span>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+          </label>
+          <label>
+            <span data-i18n="contact_name">Nombre</span>
+            <input type="text" name="nombre" id="nombre" required autocomplete="name" data-i18n-placeholder="contact_name">
+          </label>
+          <label>
+            <span data-i18n="contact_email">Email</span>
+            <input type="email" name="email" id="email" required autocomplete="email" data-i18n-placeholder="contact_email">
+          </label>
+          <label>
+            <span data-i18n="contact_subject">Asunto</span>
+            <input type="text" name="asunto" id="asunto" autocomplete="off" data-i18n-placeholder="contact_subject">
+          </label>
+          <label>
+            <span data-i18n="contact_message">Mensaje</span>
+            <textarea name="mensaje" id="mensaje" rows="5" required data-i18n-placeholder="contact_message"></textarea>
+          </label>
+          <p id="contact-form-status" class="contact-form-status" role="status" hidden></p>
+          <button type="submit" class="btn btn-primary"><span data-i18n="contact_btn">Enviar mensaje</span></button>
+          <p class="contact-form-privacy text-muted" data-i18n="contact_privacy">Usaré tus datos solo para responder a esta consulta.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© <span id="year"></span> Daniel Navas. <span data-i18n="footer_copy">Todos los derechos reservados.</span></p>
+      <p class="footer-visits">
+        <span data-i18n="footer_visits">Visitas:</span>
+        <strong id="visit-count" aria-live="polite">—</strong>
+        <span class="footer-visits-hint" data-i18n="footer_visits_hint">(sesiones únicas, total acumulado)</span>
+      </p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vista ampliada">
+    <div class="modal-backdrop" onclick="closeLightbox()"></div>
+    <button type="button" class="icon-btn modal-close lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">&times;</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+
+  <div class="gallery-modal" id="gallery-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gallery-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-dialog">
+      <button type="button" class="icon-btn modal-close" aria-label="Cerrar galería">&times;</button>
+      <h3 id="gallery-title" data-i18n="gallery_title">Capturas del proyecto</h3>
+      <p class="text-muted" data-i18n="gallery_sub">Terminal Control · contexto operativo APM Terminals</p>
+      <div class="modal-grid">
+        <figure class="modal-item">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/image1.png')">
+            <img src="assets/gallery/image1.png" alt="" data-i18n-alt="gal_1_alt" loading="lazy" width="800" height="500">
+          </button>
+          <figcaption data-i18n="gal_1_cap">Panel principal de gestión de incidencias por buque.</figcaption>
+        </figure>
+        <figure class="modal-item">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/image1.2.png')">
+            <img src="assets/gallery/image1.2.png" alt="" data-i18n-alt="gal_2_alt" loading="lazy" width="800" height="500">
+          </button>
+          <figcaption data-i18n="gal_2_cap">Formulario Power Apps para registrar incidencias (Extra Restows).</figcaption>
+        </figure>
+        <figure class="modal-item">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen2.png')">
+            <img src="assets/gallery/imagen2.png" alt="" data-i18n-alt="gal_3_alt" loading="lazy" width="800" height="500">
+          </button>
+          <figcaption data-i18n="gal_3_cap">Listas operativas en SharePoint sincronizadas con la super app.</figcaption>
+        </figure>
+        <figure class="modal-item">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen3.png')">
+            <img src="assets/gallery/imagen3.png" alt="" data-i18n-alt="gal_4_alt" loading="lazy" width="800" height="500">
+          </button>
+          <figcaption data-i18n="gal_4_cap">Informe operativo automatizado generado por Terminal Control.</figcaption>
+        </figure>
+        <figure class="modal-item">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen4.png')">
+            <img src="assets/gallery/imagen4.png" alt="" data-i18n-alt="gal_5_alt" loading="lazy" width="800" height="500">
+          </button>
+          <figcaption data-i18n="gal_5_cap">Comunicación de incidencias a clientes y líneas operadoras.</figcaption>
+        </figure>
+        <figure class="modal-item">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen5.png')">
+            <img src="assets/gallery/imagen5.png" alt="" data-i18n-alt="gal_6_alt" loading="lazy" width="800" height="500">
+          </button>
+          <figcaption data-i18n="gal_6_cap">Flujos de Power Automate para adjuntos, condiciones y envío de correos.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/code-snippets.js"></script>
+  <script src="js/main.js"></script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
