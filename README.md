@@ -22,8 +22,3 @@ Abre `http://localhost:8080` (o el puerto que indique el servidor).
 
 Los fragmentos de la sección Backend también están embebidos en `js/code-snippets.js`, así que puedes abrir `index.html` directamente y ver el código.
 
-## Antes de publicar
-
-1. Confirma en la raíz: `CNAME` (`danielnavas.dev`), `CV_Daniel_Guerrero_Navas_11.10.pdf`, `APM TERMINALS.pdf`; `logo.png` y capturas en `assets/`.
-2. Comprueba enlaces a GitHub, LinkedIn y demos.
-3. Sustituye `og:image` si añades una imagen social en `index.html`.
