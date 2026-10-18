@@ -18,66 +18,41 @@ const VISIT_COUNTER_KEY = "danielnavas-dev-portfolio-sessions";
 const VISIT_COUNTED_SESSION = "portfolio-visit-counted";
 const VISIT_COUNTER_API = "https://countapi.mileshilliard.com/api/v1";
 
-function visitShieldUrl(mode) {
-  const label = document.documentElement.lang === "en" ? "Views" : "Visitas";
-  const params = new URLSearchParams({
-    text: label,
-    style: "flat",
-    bgcolor: "2563eb",
-    textcolor: "ffffff",
-  });
-  return `${VISIT_COUNTER_API}/${mode}/${encodeURIComponent(VISIT_COUNTER_KEY)}/shield?${params}`;
-}
-
-function refreshVisitShield() {
-  const img = document.getElementById("visit-shield");
-  const fallback = document.getElementById("visit-shield-fallback");
-  if (!img) return;
-
-  const label = document.documentElement.lang === "en" ? "Views" : "Visitas";
-  img.alt = label;
-  img.hidden = false;
-  if (fallback) fallback.hidden = true;
-
-  img.onerror = () => {
-    img.hidden = true;
-    if (fallback) fallback.hidden = false;
-  };
-
-  img.src = `${visitShieldUrl("get")}&_=${Date.now()}`;
-}
-
-window.refreshVisitShield = refreshVisitShield;
-
 function initVisitCounter() {
-  const img = document.getElementById("visit-shield");
-  if (!img) return;
+  const el = document.getElementById("visit-count");
+  if (!el) return;
 
-  const markSession = () => {
-    try {
-      sessionStorage.setItem(VISIT_COUNTED_SESSION, "1");
-    } catch {
-      /* private mode */
+  const getUrl = `${VISIT_COUNTER_API}/get/${VISIT_COUNTER_KEY}`;
+  const hitUrl = `${VISIT_COUNTER_API}/hit/${VISIT_COUNTER_KEY}`;
+
+  const show = (value) => {
+    const n = typeof value === "number" ? value : Number(value);
+    if (Number.isFinite(n)) {
+      el.textContent = n.toLocaleString(document.documentElement.lang === "en" ? "en-US" : "es-ES");
     }
   };
 
-  let sessionCounted = false;
-  try {
-    sessionCounted = !!sessionStorage.getItem(VISIT_COUNTED_SESSION);
-  } catch {
-    sessionCounted = false;
-  }
+  const readCount = (res) => {
+    if (!res.ok) throw new Error("counter unavailable");
+    return res.json();
+  };
 
-  if (!sessionCounted) {
-    const pixel = new Image();
-    pixel.onload = () => {
-      markSession();
-      refreshVisitShield();
-    };
-    pixel.onerror = () => refreshVisitShield();
-    pixel.src = `${visitShieldUrl("hit")}&_=${Date.now()}`;
-  } else {
-    refreshVisitShield();
+  const refresh = () =>
+    fetch(getUrl)
+      .then(readCount)
+      .then((data) => show(data.value))
+      .catch(() => {});
+
+  refresh();
+
+  if (!sessionStorage.getItem(VISIT_COUNTED_SESSION)) {
+    fetch(hitUrl)
+      .then(readCount)
+      .then((data) => {
+        sessionStorage.setItem(VISIT_COUNTED_SESSION, "1");
+        show(data.value);
+      })
+      .catch(refresh);
   }
 }
 
@@ -120,7 +95,6 @@ function initLanguage() {
     if (btn) btn.textContent = code === "es" ? "EN" : "ES";
     localStorage.setItem("lang", code);
     lang = code;
-    window.refreshVisitShield?.();
   };
 
   apply(lang);

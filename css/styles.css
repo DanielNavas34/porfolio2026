@@ -1212,17 +1212,10 @@ body.nav-open .header-inner {
   gap: 0.35rem 0.5rem;
 }
 
-.visit-shield {
-  display: inline-block;
-  height: 28px;
-  width: auto;
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-.visit-shield-fallback {
+.footer-visits strong {
   color: var(--accent);
   font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .footer-visits-hint {
