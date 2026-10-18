@@ -11,7 +11,50 @@ document.addEventListener("DOMContentLoaded", () => {
   initContactForm();
   initGallery();
   initLightbox();
+  initVisitCounter();
 });
+
+const VISIT_COUNTER_KEY = "danielnavas-dev-portfolio-sessions";
+const VISIT_COUNTED_SESSION = "portfolio-visit-counted";
+const VISIT_COUNTER_API = "https://countapi.mileshilliard.com/api/v1";
+
+function initVisitCounter() {
+  const el = document.getElementById("visit-count");
+  if (!el) return;
+
+  const getUrl = `${VISIT_COUNTER_API}/get/${VISIT_COUNTER_KEY}`;
+  const hitUrl = `${VISIT_COUNTER_API}/hit/${VISIT_COUNTER_KEY}`;
+
+  const show = (value) => {
+    const n = typeof value === "number" ? value : Number(value);
+    if (Number.isFinite(n)) {
+      el.textContent = n.toLocaleString(document.documentElement.lang === "en" ? "en-US" : "es-ES");
+    }
+  };
+
+  const readCount = (res) => {
+    if (!res.ok) throw new Error("counter unavailable");
+    return res.json();
+  };
+
+  const refresh = () =>
+    fetch(getUrl)
+      .then(readCount)
+      .then((data) => show(data.value))
+      .catch(() => {});
+
+  refresh();
+
+  if (!sessionStorage.getItem(VISIT_COUNTED_SESSION)) {
+    fetch(hitUrl)
+      .then(readCount)
+      .then((data) => {
+        sessionStorage.setItem(VISIT_COUNTED_SESSION, "1");
+        show(data.value);
+      })
+      .catch(refresh);
+  }
+}
 
 function initTheme() {
   const btn = document.getElementById("theme-toggle");
