@@ -72,6 +72,16 @@ const TRANSLATIONS = {
     stack_title: "Stack aplicado a proyectos reales",
     stack_intro:
       "Áreas en las que combino desarrollo, automatización, datos e infraestructura según el contexto del proyecto.",
+    soft_title: "Soft skills",
+    soft_desc:
+      "Competencias transversales que complementan el stack técnico en entornos profesionales y de equipo.",
+    soft_1: "Habilidades comunicativas",
+    soft_2: "Capacidad de expresión",
+    soft_3: "Aprendizaje autónomo",
+    soft_4: "Pensamiento analítico",
+    soft_5: "Resolución de problemas",
+    soft_6: "Colaboración",
+    soft_7: "Atención al detalle",
     stack_fe_title: "Frontend",
     stack_fe_desc:
       "Interfaces legibles y responsive con HTML5, CSS3 y JavaScript, priorizando jerarquía visual y accesibilidad.",
@@ -283,6 +293,15 @@ const TRANSLATIONS = {
     stack_title: "Stack applied to real projects",
     stack_intro:
       "Areas where I combine development, automation, data, and infrastructure depending on project context.",
+    soft_title: "Soft skills",
+    soft_desc: "Transferable strengths that complement technical skills in professional and team settings.",
+    soft_1: "Communication skills",
+    soft_2: "Clear expression",
+    soft_3: "Self-directed learning",
+    soft_4: "Analytical thinking",
+    soft_5: "Problem solving",
+    soft_6: "Collaboration",
+    soft_7: "Attention to detail",
     stack_fe_title: "Frontend",
     stack_fe_desc:
       "Readable, responsive interfaces with HTML5, CSS3, and JavaScript, prioritizing visual hierarchy and accessibility.",

@@ -12,7 +12,12 @@
   <meta property="og:title" content="Daniel Navas | Desarrollador Web Full Stack">
   <meta property="og:description" content="Aplicaciones web, automatización empresarial y digitalización de procesos.">
   <meta property="og:locale" content="es_ES">
+  <meta property="og:image" content="https://danielnavas.dev/assets/og-preview.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Daniel Navas — Desarrollador Web Full Stack">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://danielnavas.dev/assets/og-preview.jpg">
   <link rel="icon" type="image/png" href="assets/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +50,7 @@
         <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel" aria-label="Abrir menú"><span></span></button>
       </div>
     </div>
+    <button type="button" class="nav-backdrop" id="nav-backdrop" aria-hidden="true" tabindex="-1" aria-label="Cerrar menú"></button>
     <div class="nav-panel" id="nav-panel" aria-label="Menú móvil">
       <a href="#about" data-nav-section data-i18n="nav_about">Sobre mí</a>
       <a href="#projects" data-nav-section data-i18n="nav_projects">Proyectos</a>
@@ -70,10 +76,10 @@
           <p class="hero-lead" data-i18n="hero_lead">Creo aplicaciones web, automatizaciones empresariales y herramientas digitales que resuelven problemas reales en operaciones y negocio.</p>
           <p class="hero-desc" data-i18n="hero_desc">Daniel Navas · Algeciras, Cádiz. Técnico Superior en DAW, orientado al desarrollo Full Stack, Microsoft Power Platform y la transformación digital.</p>
           <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">Ver proyectos</a>
-            <a href="CV_Daniel_Guerrero_Navas_11.10.pdf" class="btn btn-secondary" download data-i18n="hero_btn_cv">Descargar CV</a>
-            <a href="https://www.linkedin.com/in/daniel--guerrero-navas/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_linkedin">LinkedIn</a>
-            <a href="#contact" class="btn btn-ghost" data-i18n="hero_btn_contact">Contactar</a>
+            <a href="#projects" class="btn btn-primary hero-action-wide" data-i18n="hero_btn_projects">Ver proyectos</a>
+            <a href="CV_Daniel_Guerrero_Navas_11.10.pdf" class="btn btn-secondary hero-action-wide" download data-i18n="hero_btn_cv">Descargar CV</a>
+            <a href="https://www.linkedin.com/in/daniel--guerrero-navas/" class="btn btn-secondary hero-action-half" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_linkedin">LinkedIn</a>
+            <a href="#contact" class="btn btn-ghost hero-action-half" data-i18n="hero_btn_contact">Contactar</a>
           </div>
           <div class="hero-meta">
             <span>Algeciras, Cádiz · España</span>
@@ -245,6 +251,19 @@
         <p class="section-intro reveal" data-i18n="stack_intro">Áreas en las que combino desarrollo, automatización, datos e infraestructura.</p>
 
         <div class="grid-2">
+          <article class="card stack-block reveal span-full">
+            <h3 data-i18n="soft_title">Soft skills</h3>
+            <p class="text-muted" data-i18n="soft_desc">Competencias transversales que complementan el stack técnico en entornos profesionales y de equipo.</p>
+            <div class="tag-list">
+              <span class="tag" data-i18n="soft_1">Habilidades comunicativas</span>
+              <span class="tag" data-i18n="soft_2">Capacidad de expresión</span>
+              <span class="tag" data-i18n="soft_3">Aprendizaje autónomo</span>
+              <span class="tag" data-i18n="soft_4">Pensamiento analítico</span>
+              <span class="tag" data-i18n="soft_5">Resolución de problemas</span>
+              <span class="tag" data-i18n="soft_6">Colaboración</span>
+              <span class="tag" data-i18n="soft_7">Atención al detalle</span>
+            </div>
+          </article>
           <article class="card stack-block reveal">
             <h3 data-i18n="stack_fe_title">Frontend</h3>
             <p class="text-muted" data-i18n="stack_fe_desc">Interfaces legibles y responsive.</p>

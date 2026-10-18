@@ -104,22 +104,53 @@ function initNavigation() {
   const header = document.getElementById("site-header");
   const toggle = document.getElementById("nav-toggle");
   const panel = document.getElementById("nav-panel");
+  const backdrop = document.getElementById("nav-backdrop");
   const links = document.querySelectorAll(".nav-panel a, .nav-desktop a");
+  let scrollLockY = 0;
+
+  const lockScroll = () => {
+    scrollLockY = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollLockY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+  };
+
+  const unlockScroll = () => {
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    window.scrollTo(0, scrollLockY);
+  };
+
+  const setMenuOpen = (open) => {
+    toggle?.setAttribute("aria-expanded", String(open));
+    panel?.classList.toggle("is-open", open);
+    backdrop?.classList.toggle("is-open", open);
+    backdrop?.setAttribute("aria-hidden", open ? "false" : "true");
+    header?.classList.toggle("is-menu-open", open);
+    document.body.classList.toggle("nav-open", open);
+    if (open) lockScroll();
+    else unlockScroll();
+  };
 
   const closePanel = () => {
-    toggle?.setAttribute("aria-expanded", "false");
-    panel?.classList.remove("is-open");
-    document.body.classList.remove("nav-open");
+    if (panel?.classList.contains("is-open")) setMenuOpen(false);
   };
 
   toggle?.addEventListener("click", () => {
-    const open = !panel?.classList.contains("is-open");
-    toggle.setAttribute("aria-expanded", String(open));
-    panel?.classList.toggle("is-open", open);
-    document.body.classList.toggle("nav-open", open);
+    setMenuOpen(!panel?.classList.contains("is-open"));
   });
 
+  backdrop?.addEventListener("click", closePanel);
   links.forEach((link) => link.addEventListener("click", closePanel));
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closePanel();
+  });
 
   const onScroll = () => {
     header?.classList.toggle("is-scrolled", window.scrollY > 8);
