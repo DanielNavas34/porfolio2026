@@ -175,7 +175,7 @@ const TRANSLATIONS = {
     contact_label: "Contacto",
     contact_title: "Hablemos de tu proyecto",
     contact_p:
-      "Disponible para oportunidades laborales, prácticas avanzadas, freelance y colaboraciones. Respuesta en cuanto pueda.",
+      "Disponible para oportunidades laborales, freelance y colaboraciones. Respuesta en pocas horas.",
     contact_avail: "Disponible para trabajar",
     contact_cv: "Descargar CV (PDF)",
     contact_name: "Nombre",
@@ -386,7 +386,7 @@ const TRANSLATIONS = {
     contact_label: "Contact",
     contact_title: "Let's talk about your project",
     contact_p:
-      "Available for job opportunities, advanced internships, freelance work, and collaborations. I reply as soon as I can.",
+      "Available for job opportunities, freelance work, and collaborations. I usually reply within a few hours.",
     contact_avail: "Available for work",
     contact_cv: "Download CV (PDF)",
     contact_name: "Name",
