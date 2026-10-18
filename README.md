@@ -26,7 +26,7 @@ Portfolio orientado a reclutadores y clientes: narrativa de **Full Stack + Power
 ├── CNAME               # Dominio personalizado (GitHub Pages)
 ├── css/styles.css      # Diseño responsive y variables de tema
 ├── js/
-│   ├── main.js         # Navegación, tema, idioma, formulario, galería, contador
+│   ├── main.js         # Navegación, tema, idioma, formulario, galería
 │   ├── i18n.js         # Traducciones ES / EN
 │   └── code-snippets.js # Fragmentos embebidos (funciona sin servidor local)
 ├── assets/
@@ -41,7 +41,7 @@ Documentación de recursos estáticos: [`assets/README.md`](assets/README.md).
 
 ## Desarrollo local
 
-Se recomienda un servidor local (Formspree, contador de visitas y rutas relativas se comportan mejor que `file://`):
+Se recomienda un servidor local (Formspree y rutas relativas se comportan mejor que `file://`):
 
 ```bash
 npx serve .
@@ -74,8 +74,6 @@ node scripts/embed-snippet.mjs assets/code/02-express-api.js
 - **No subas** contraseñas, tokens privados, `.env`, credenciales de base de datos ni contenido de `config/` de otros proyectos. El repositorio incluye `.gitignore` con `.env` y artefactos locales.
 - El **formulario de contacto** usa [Formspree](https://formspree.io): el identificador del formulario va en el front-end (`js/main.js`). Es público por diseño; si alguna vez se abusa del formulario, rota el formulario en el panel de Formspree y actualiza la URL en código.
 - Los **fragmentos de código** del portfolio son educativos; no incluyen secretos reales. No publiques en el repo archivos de producción con datos sensibles.
-- El **contador de visitas** usa [CountAPI](https://countapi.mileshilliard.com) (clave pública en `js/main.js`; sesiones aproximadas). No sustituye analítica privada ni recoge datos personales del visitante en este sitio.
-
 Datos de contacto visibles en la web (email, redes) son intencionados para el portfolio; no los dupliques en el README.
 
 ---
