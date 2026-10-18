@@ -54,12 +54,12 @@ function initVisitCounter() {
   const fetchCount = (url) => {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), VISIT_FETCH_MS);
+    /* Sin cabeceras custom: petición CORS "simple" (evita preflight OPTIONS en Safari/iOS). */
     return fetch(url, {
       method: "GET",
       mode: "cors",
       credentials: "omit",
       signal: controller.signal,
-      headers: { Accept: "application/json" },
     })
       .then((res) => {
         if (!res.ok) throw new Error("counter http");
