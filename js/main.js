@@ -16,42 +16,91 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const VISIT_COUNTER_KEY = "danielnavas-dev-portfolio-sessions";
 const VISIT_COUNTED_SESSION = "portfolio-visit-counted";
+const VISIT_COUNTER_CACHE = "portfolio-visit-cache";
 const VISIT_COUNTER_API = "https://countapi.mileshilliard.com/api/v1";
+const VISIT_FETCH_MS = 12000;
 
 function initVisitCounter() {
   const el = document.getElementById("visit-count");
   if (!el) return;
 
-  const getUrl = `${VISIT_COUNTER_API}/get/${VISIT_COUNTER_KEY}`;
-  const hitUrl = `${VISIT_COUNTER_API}/hit/${VISIT_COUNTER_KEY}`;
+  const locale = () => (document.documentElement.lang === "en" ? "en-US" : "es-ES");
+  const getUrl = `${VISIT_COUNTER_API}/get/${encodeURIComponent(VISIT_COUNTER_KEY)}`;
+  const hitUrl = `${VISIT_COUNTER_API}/hit/${encodeURIComponent(VISIT_COUNTER_KEY)}`;
+
+  const parseCount = (value) => {
+    const n = typeof value === "number" ? value : Number(value);
+    return Number.isFinite(n) ? n : null;
+  };
 
   const show = (value) => {
-    if (typeof value === "number" && Number.isFinite(value)) {
-      el.textContent = value.toLocaleString(document.documentElement.lang === "en" ? "en-US" : "es-ES");
+    const n = parseCount(value);
+    if (n === null) return;
+    el.textContent = n.toLocaleString(locale());
+    try {
+      localStorage.setItem(VISIT_COUNTER_CACHE, String(n));
+    } catch {
+      /* storage blocked */
     }
   };
 
-  const readCount = (res) => {
-    if (!res.ok) throw new Error("counter unavailable");
-    return res.json();
+  try {
+    const cached = localStorage.getItem(VISIT_COUNTER_CACHE);
+    if (cached) show(cached);
+  } catch {
+    /* ignore */
+  }
+
+  const fetchCount = (url) => {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), VISIT_FETCH_MS);
+    return fetch(url, {
+      method: "GET",
+      mode: "cors",
+      credentials: "omit",
+      signal: controller.signal,
+      headers: { Accept: "application/json" },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("counter http");
+        return res.json();
+      })
+      .finally(() => clearTimeout(timer));
   };
 
-  const refresh = () =>
-    fetch(getUrl)
-      .then(readCount)
+  const refresh = (attempt = 0) =>
+    fetchCount(getUrl)
       .then((data) => show(data.value))
-      .catch(() => {});
+      .catch(() => {
+        if (attempt < 1) {
+          setTimeout(() => refresh(attempt + 1), 1500);
+        }
+      });
+
+  const markSession = () => {
+    try {
+      sessionStorage.setItem(VISIT_COUNTED_SESSION, "1");
+    } catch {
+      /* private mode */
+    }
+  };
+
+  let sessionCounted = false;
+  try {
+    sessionCounted = !!sessionStorage.getItem(VISIT_COUNTED_SESSION);
+  } catch {
+    sessionCounted = false;
+  }
 
   refresh();
 
-  if (!sessionStorage.getItem(VISIT_COUNTED_SESSION)) {
-    fetch(hitUrl)
-      .then(readCount)
+  if (!sessionCounted) {
+    fetchCount(hitUrl)
       .then((data) => {
-        sessionStorage.setItem(VISIT_COUNTED_SESSION, "1");
+        markSession();
         show(data.value);
       })
-      .catch(refresh);
+      .catch(() => refresh());
   }
 }
 
