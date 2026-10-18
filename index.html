@@ -545,8 +545,17 @@
     <div class="container footer-inner">
       <p class="footer-copy">© <span id="year"></span> Daniel Navas. <span data-i18n="footer_copy">Todos los derechos reservados.</span></p>
       <p class="footer-visits">
-        <span data-i18n="footer_visits">Visitas:</span>
-        <strong id="visit-count" aria-live="polite">—</strong>
+        <img
+          id="visit-shield"
+          class="visit-shield"
+          src=""
+          alt=""
+          width="112"
+          height="28"
+          loading="lazy"
+          decoding="async"
+        >
+        <span id="visit-shield-fallback" class="visit-shield-fallback" hidden aria-live="polite">—</span>
         <span class="footer-visits-hint" data-i18n="footer_visits_hint">(sesiones únicas, total acumulado)</span>
       </p>
     </div>
@@ -607,7 +616,7 @@
 
   <script src="js/i18n.js"></script>
   <script src="js/code-snippets.js"></script>
-  <script src="js/main.js?v=20260322b"></script>
+  <script src="js/main.js?v=20260322c"></script>
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>

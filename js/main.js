@@ -16,66 +16,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const VISIT_COUNTER_KEY = "danielnavas-dev-portfolio-sessions";
 const VISIT_COUNTED_SESSION = "portfolio-visit-counted";
-const VISIT_COUNTER_CACHE = "portfolio-visit-cache";
 const VISIT_COUNTER_API = "https://countapi.mileshilliard.com/api/v1";
-const VISIT_FETCH_MS = 12000;
+
+function visitShieldUrl(mode) {
+  const label = document.documentElement.lang === "en" ? "Views" : "Visitas";
+  const params = new URLSearchParams({
+    text: label,
+    style: "flat",
+    bgcolor: "2563eb",
+    textcolor: "ffffff",
+  });
+  return `${VISIT_COUNTER_API}/${mode}/${encodeURIComponent(VISIT_COUNTER_KEY)}/shield?${params}`;
+}
+
+function refreshVisitShield() {
+  const img = document.getElementById("visit-shield");
+  const fallback = document.getElementById("visit-shield-fallback");
+  if (!img) return;
+
+  const label = document.documentElement.lang === "en" ? "Views" : "Visitas";
+  img.alt = label;
+  img.hidden = false;
+  if (fallback) fallback.hidden = true;
+
+  img.onerror = () => {
+    img.hidden = true;
+    if (fallback) fallback.hidden = false;
+  };
+
+  img.src = `${visitShieldUrl("get")}&_=${Date.now()}`;
+}
+
+window.refreshVisitShield = refreshVisitShield;
 
 function initVisitCounter() {
-  const el = document.getElementById("visit-count");
-  if (!el) return;
-
-  const locale = () => (document.documentElement.lang === "en" ? "en-US" : "es-ES");
-  const getUrl = `${VISIT_COUNTER_API}/get/${encodeURIComponent(VISIT_COUNTER_KEY)}`;
-  const hitUrl = `${VISIT_COUNTER_API}/hit/${encodeURIComponent(VISIT_COUNTER_KEY)}`;
-
-  const parseCount = (value) => {
-    const n = typeof value === "number" ? value : Number(value);
-    return Number.isFinite(n) ? n : null;
-  };
-
-  const show = (value) => {
-    const n = parseCount(value);
-    if (n === null) return;
-    el.textContent = n.toLocaleString(locale());
-    try {
-      localStorage.setItem(VISIT_COUNTER_CACHE, String(n));
-    } catch {
-      /* storage blocked */
-    }
-  };
-
-  try {
-    const cached = localStorage.getItem(VISIT_COUNTER_CACHE);
-    if (cached) show(cached);
-  } catch {
-    /* ignore */
-  }
-
-  const fetchCount = (url) => {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), VISIT_FETCH_MS);
-    /* Sin cabeceras custom: petición CORS "simple" (evita preflight OPTIONS en Safari/iOS). */
-    return fetch(url, {
-      method: "GET",
-      mode: "cors",
-      credentials: "omit",
-      signal: controller.signal,
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("counter http");
-        return res.json();
-      })
-      .finally(() => clearTimeout(timer));
-  };
-
-  const refresh = (attempt = 0) =>
-    fetchCount(getUrl)
-      .then((data) => show(data.value))
-      .catch(() => {
-        if (attempt < 1) {
-          setTimeout(() => refresh(attempt + 1), 1500);
-        }
-      });
+  const img = document.getElementById("visit-shield");
+  if (!img) return;
 
   const markSession = () => {
     try {
@@ -92,15 +68,16 @@ function initVisitCounter() {
     sessionCounted = false;
   }
 
-  refresh();
-
   if (!sessionCounted) {
-    fetchCount(hitUrl)
-      .then((data) => {
-        markSession();
-        show(data.value);
-      })
-      .catch(() => refresh());
+    const pixel = new Image();
+    pixel.onload = () => {
+      markSession();
+      refreshVisitShield();
+    };
+    pixel.onerror = () => refreshVisitShield();
+    pixel.src = `${visitShieldUrl("hit")}&_=${Date.now()}`;
+  } else {
+    refreshVisitShield();
   }
 }
 
@@ -143,6 +120,7 @@ function initLanguage() {
     if (btn) btn.textContent = code === "es" ? "EN" : "ES";
     localStorage.setItem("lang", code);
     lang = code;
+    window.refreshVisitShield?.();
   };
 
   apply(lang);
