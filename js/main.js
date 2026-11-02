@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initReveal();
   initStaggerGroups();
-  initHeroParallax();
   initCodeShowcase();
   initContactForm();
   initGallery();
@@ -59,8 +58,7 @@ function initVisitCounter() {
 function initTheme() {
   const btn = document.getElementById("theme-toggle");
   const stored = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  const theme = stored || (prefersDark ? "dark" : "light");
+  const theme = stored || "light";
   document.documentElement.setAttribute("data-theme", theme);
 
   btn?.addEventListener("click", () => {
@@ -211,22 +209,6 @@ function initStaggerGroups() {
       }
     });
   });
-}
-
-function initHeroParallax() {
-  const visual = document.getElementById("hero-visual");
-  if (!visual || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  if (!window.matchMedia("(min-width: 900px)").matches) return;
-
-  window.addEventListener(
-    "mousemove",
-    (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 14;
-      const y = (e.clientY / window.innerHeight - 0.5) * 10;
-      visual.style.transform = `perspective(900px) rotateY(${x * 0.35}deg) rotateX(${-y * 0.35}deg) translate3d(${x * 0.5}px, ${y * 0.5}px, 0)`;
-    },
-    { passive: true }
-  );
 }
 
 async function initCodeShowcase() {

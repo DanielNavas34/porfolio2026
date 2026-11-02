@@ -130,6 +130,26 @@ const TRANSLATIONS = {
     stack_other_desc: "Ciberseguridad, automatización de procesos y coordinación de proyectos tecnológicos.",
     exp_label: "Trayectoria",
     exp_title: "Experiencia profesional",
+    exp3_period: "Jun. 2026 — Actualidad",
+    exp3_company: "danielnavas.dev",
+    exp3_role: "Desarrollador web full stack (proyectos propios y encargos)",
+    exp3_meta: "Algeciras, Andalucía, España · En remoto",
+    exp3_desc:
+      "Construyo y mantengo productos web completos de extremo a extremo: diseño funcional, backend, despliegue y uso real por usuarios finales.",
+    exp3_impact_title: "Proyecto destacado — La Liga del Tenista (producción)",
+    exp3_m1:
+      "Plataforma para gestión de ligas y torneos de tenis: rankings por categoría, partidos jugados, victorias y puntuación en tiempo real.",
+    exp3_m2:
+      "Área privada con registro e inicio de sesión, bases de la liga, calendario de torneos y módulo de patrocinadores.",
+    exp3_m3:
+      "Enfoque en operación real del club: captura de resultados, visibilidad del ranking y mensaje claro para nuevos clientes.",
+    exp3_m4: "Despliegue en entorno de hosting compartido con producto accesible 24/7.",
+    exp3_stack:
+      "<strong>Stack:</strong> PHP, Laravel, MySQL, HTML/CSS, JavaScript, Git; buenas prácticas de seguridad en autenticación (p. ej. CSRF en formularios).",
+    exp3_open: "Abierto a encargos similares: clubs, pymes y herramientas internas sencillas con impacto medible.",
+    exp3_demo: "Demo en vivo",
+    exp3_instagram: "Instagram",
+    exp3_portfolio: "Portfolio",
     exp1_company: "APM Terminals / Maersk",
     exp1_role: "Prácticas · Transformación digital y automatización",
     exp1_period: "2026",
@@ -164,7 +184,7 @@ const TRANSLATIONS = {
     edu4_title: "JavaScript desde cero",
     edu4_org: "MoureDev Pro · 2026",
     edu5_title: "Google Data Analytics",
-    edu5_org: "Google Scholarships ES · En curso",
+    edu5_org: "Google Scholarships ES · 2026",
     serv_label: "Servicios",
     serv_title: "Qué puedo aportar",
     serv_intro:
@@ -350,6 +370,26 @@ const TRANSLATIONS = {
     stack_other_desc: "Cybersecurity, process automation, and coordination of technology projects.",
     exp_label: "Career",
     exp_title: "Professional experience",
+    exp3_period: "Jun 2026 — Present",
+    exp3_company: "danielnavas.dev",
+    exp3_role: "Full stack web developer (own projects and commissions)",
+    exp3_meta: "Algeciras, Andalusia, Spain · Remote",
+    exp3_desc:
+      "I build and maintain complete web products end to end: functional design, backend, deployment and real use by end users.",
+    exp3_impact_title: "Featured project — La Liga del Tenista (production)",
+    exp3_m1:
+      "Platform for managing tennis leagues and tournaments: rankings by category, matches played, wins and real-time scoring.",
+    exp3_m2:
+      "Private area with sign-up and login, league rules, tournament calendar and sponsors module.",
+    exp3_m3:
+      "Focused on the club's real operations: result capture, ranking visibility and a clear message for new customers.",
+    exp3_m4: "Deployed on shared hosting, with the product available 24/7.",
+    exp3_stack:
+      "<strong>Stack:</strong> PHP, Laravel, MySQL, HTML/CSS, JavaScript, Git; secure authentication practices (e.g. CSRF on forms).",
+    exp3_open: "Open to similar commissions: clubs, SMEs and simple internal tools with measurable impact.",
+    exp3_demo: "Live demo",
+    exp3_instagram: "Instagram",
+    exp3_portfolio: "Portfolio",
     exp1_company: "APM Terminals / Maersk",
     exp1_role: "Internship · Digital transformation & automation",
     exp1_period: "2026",
@@ -384,7 +424,7 @@ const TRANSLATIONS = {
     edu4_title: "JavaScript from scratch",
     edu4_org: "MoureDev Pro · 2026",
     edu5_title: "Google Data Analytics",
-    edu5_org: "Google Scholarships ES · In progress",
+    edu5_org: "Google Scholarships ES · 2026",
     serv_label: "Services",
     serv_title: "What I can offer",
     serv_intro:
