@@ -4,8 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   initTheme();
   initLanguage();
   initNavigation();
-  initReveal();
+  initProjectsLabel();
   initStaggerGroups();
+  initHeroTitle();
+  initCursor();
+  initIntro().then(() => {
+    document.documentElement.classList.add("hero-play");
+    initReveal();
+  });
   initCodeShowcase();
   initContactForm();
   initGallery();
@@ -55,6 +61,33 @@ function initVisitCounter() {
   }
 }
 
+function initIntro() {
+  const root = document.documentElement;
+  const boot = document.getElementById("boot");
+  if (!boot || !root.classList.contains("intro-on")) {
+    boot?.remove();
+    root.classList.remove("intro-on");
+    return Promise.resolve();
+  }
+
+  return new Promise((resolve) => {
+    const events = ["pointerdown", "keydown", "wheel", "touchstart"];
+    let timer;
+    const finish = () => {
+      clearTimeout(timer);
+      events.forEach((type) => window.removeEventListener(type, finish));
+      boot.classList.add("is-leaving");
+      resolve();
+      setTimeout(() => {
+        boot.remove();
+        root.classList.remove("intro-on");
+      }, 750);
+    };
+    events.forEach((type) => window.addEventListener(type, finish, { passive: true, once: true }));
+    timer = setTimeout(finish, 2200);
+  });
+}
+
 function initTheme() {
   const btn = document.getElementById("theme-toggle");
   const stored = localStorage.getItem("theme");
@@ -62,10 +95,89 @@ function initTheme() {
   document.documentElement.setAttribute("data-theme", theme);
 
   btn?.addEventListener("click", () => {
-    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
+    const root = document.documentElement;
+    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    const apply = () => {
+      root.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+    };
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!document.startViewTransition || reduced) {
+      apply();
+      return;
+    }
+
+    const r = btn.getBoundingClientRect();
+    const x = r.left + r.width / 2;
+    const y = r.top + r.height / 2;
+    const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+    const transition = document.startViewTransition(apply);
+    transition.ready.then(() => {
+      root.animate(
+        { clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${radius}px at ${x}px ${y}px)`] },
+        { duration: 650, easing: "cubic-bezier(0.2, 0.7, 0.2, 1)", pseudoElement: "::view-transition-new(root)" }
+      );
+    });
   });
+}
+
+function initHeroTitle() {
+  const split = () => {
+    const el = document.querySelector('.hero-title [data-i18n="hero_title"]');
+    if (!el || el.querySelector(".word")) return;
+    const words = el.textContent.trim().split(/\s+/);
+    el.closest("h1").setAttribute("aria-label", words.join(" "));
+    el.innerHTML = words
+      .map((w, i) => `<span class="word" style="--w: ${i}" aria-hidden="true"><span>${w}</span></span>`)
+      .join(" ");
+  };
+  split();
+  document.addEventListener("langchange", split);
+}
+
+function initCursor() {
+  const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!fine || reduced) return;
+
+  const dot = document.createElement("div");
+  dot.className = "cursor-dot";
+  dot.setAttribute("aria-hidden", "true");
+  document.body.appendChild(dot);
+
+  let x = -100;
+  let y = -100;
+  let cx = x;
+  let cy = y;
+  let raf = 0;
+  const loop = () => {
+    cx += (x - cx) * 0.22;
+    cy += (y - cy) * 0.22;
+    dot.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+    raf = Math.abs(x - cx) > 0.1 || Math.abs(y - cy) > 0.1 ? requestAnimationFrame(loop) : 0;
+  };
+
+  window.addEventListener(
+    "pointermove",
+    (e) => {
+      if (e.pointerType !== "mouse") return;
+      x = e.clientX;
+      y = e.clientY;
+      if (!dot.classList.contains("is-active")) {
+        cx = x;
+        cy = y;
+        dot.classList.add("is-active");
+      }
+      if (!raf) raf = requestAnimationFrame(loop);
+    },
+    { passive: true }
+  );
+  document.addEventListener("pointerover", (e) => {
+    const interactive = e.target.closest?.("a, button, summary, label, input, textarea, select, [role='button']");
+    dot.classList.toggle("is-hover", Boolean(interactive));
+  });
+  document.documentElement.addEventListener("pointerleave", () => dot.classList.remove("is-active"));
 }
 
 function initLanguage() {
@@ -76,8 +188,9 @@ function initLanguage() {
     document.documentElement.lang = code;
     document.querySelectorAll("[data-i18n], [data-i18n-placeholder], [data-i18n-alt]").forEach((el) => {
       const altKey = el.getAttribute("data-i18n-alt");
-      if (altKey && TRANSLATIONS[code]?.[altKey]) {
-        el.alt = TRANSLATIONS[code][altKey];
+      const altVal = altKey && TRANSLATIONS[code]?.[altKey];
+      if (altVal && el.alt !== altVal) {
+        el.alt = altVal;
       }
       const placeholderKey = el.getAttribute("data-i18n-placeholder");
       const key = placeholderKey || el.getAttribute("data-i18n");
@@ -86,13 +199,14 @@ function initLanguage() {
       if (val === undefined) return;
       if (placeholderKey) {
         el.placeholder = val;
-      } else if (!altKey || el.hasAttribute("data-i18n")) {
+      } else if ((!altKey || el.hasAttribute("data-i18n")) && el.innerHTML !== val) {
         el.innerHTML = val;
       }
     });
     if (btn) btn.textContent = code === "es" ? "EN" : "ES";
     localStorage.setItem("lang", code);
     lang = code;
+    document.dispatchEvent(new CustomEvent("langchange"));
   };
 
   apply(lang);
@@ -175,6 +289,28 @@ function initNavigation() {
     );
     sections.forEach((s) => observer.observe(s));
   }
+}
+
+function initProjectsLabel() {
+  const label = document.querySelector("#projects > .container > .section-label");
+  const cards = document.querySelector("#projects > .container > .grid-2");
+  if (!label || !cards) return;
+
+  let ticking = false;
+  const update = () => {
+    ticking = false;
+    const l = label.getBoundingClientRect();
+    const c = cards.getBoundingClientRect();
+    label.classList.toggle("is-tucked", l.bottom > c.top && l.top < c.bottom);
+  };
+  const onScroll = () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("resize", onScroll);
+  update();
 }
 
 function initReveal() {
@@ -281,6 +417,7 @@ window.openLightbox = function openLightbox(src) {
   img.alt = galleryShot?.alt || "";
   box.classList.add("is-open");
   box.setAttribute("aria-hidden", "false");
+  box.inert = false;
   document.body.classList.add("modal-open");
 };
 
@@ -290,6 +427,7 @@ window.closeLightbox = function closeLightbox() {
   if (!box) return;
   box.classList.remove("is-open");
   box.setAttribute("aria-hidden", "true");
+  box.inert = true;
   document.body.classList.remove("modal-open");
   if (img) img.src = "";
 };
@@ -379,6 +517,7 @@ window.openGallery = function openGallery() {
   if (!modal) return;
   modal.classList.add("is-open");
   modal.setAttribute("aria-hidden", "false");
+  modal.inert = false;
   document.body.classList.add("modal-open");
   modal.querySelector(".modal-close")?.focus();
 };
@@ -388,5 +527,6 @@ window.closeGallery = function closeGallery() {
   if (!modal) return;
   modal.classList.remove("is-open");
   modal.setAttribute("aria-hidden", "true");
+  modal.inert = true;
   document.body.classList.remove("modal-open");
 };

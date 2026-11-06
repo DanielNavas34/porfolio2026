@@ -1,6 +1,52 @@
 /* Daniel Navas — portfolio design system
    Editorial base · carbón panels · refined brutalist details */
 
+/* Geist & Geist Mono (SIL OFL), self-hosted subsets */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/geist-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../assets/fonts/geist-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../assets/fonts/geist-mono-symbols.woff2") format("woff2");
+  unicode-range: U+2000-2001, U+2004-2008, U+200A, U+23B8-23BD, U+2500-259F;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../assets/fonts/geist-mono-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../assets/fonts/geist-mono-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ==========================================================================
    1. Tokens
    ========================================================================== */
@@ -174,7 +220,6 @@ main {
 .section {
   padding: clamp(4.5rem, 9vw, 8rem) 0;
 }
-
 .section-alt {
   background: var(--bg-alt);
   border-block: 1px solid var(--border);
@@ -276,6 +321,22 @@ main {
 
   #projects > .container > .section-label {
     grid-row: 1 / span 3;
+    transition: opacity 0.3s var(--ease);
+  }
+
+  #projects > .container > .section-label.is-tucked {
+    opacity: 0;
+  }
+
+  /* Room below the cards where the sticky label comes to rest */
+  #projects.section {
+    padding-bottom: 1rem;
+  }
+
+  #projects > .container::after {
+    content: "";
+    grid-column: 1 / -1;
+    height: 7rem;
   }
 
   #projects > .container > .grid-2 {
@@ -902,104 +963,66 @@ body.nav-open .header-inner {
   border-bottom-width: 2px;
 }
 
-.hero-stats {
-  padding: clamp(1.75rem, 3.5vw, 2.5rem);
+.hero-photo {
+  margin: 0;
+  gap: 1rem;
+  align-content: start;
 }
 
-.hero-stats-label {
-  margin: 0 0 1.25rem;
+.hero-photo::before,
+.hero-photo::after {
+  z-index: 1;
+}
+
+.hero-photo-frame {
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-alt);
+}
+
+.hero-photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.hero-photo-caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--ink-muted);
+  background: var(--bg);
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
-.hero-stats-label::before {
+.hero-photo-name {
+  color: var(--text);
+}
+
+.hero-photo-name::before {
   content: "■ ";
   content: "■ " / "";
   color: var(--accent);
 }
 
-.hero-stats-list,
-.hero-creds {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.hero-stats-list li {
-  display: grid;
-  grid-template-columns: 5.5rem minmax(0, 1fr);
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-  border-top: 1px solid var(--ink-muted);
-  background: var(--bg);
-}
-
-.hero-stat-num {
-  font-size: clamp(3rem, 2.2rem + 2.6vw, 4.25rem);
-  font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-  font-variant-numeric: tabular-nums;
-}
-
-.hero-stats-list li:first-child .hero-stat-num {
-  color: var(--accent);
-}
-
-.hero-stat-text {
-  font-size: 1rem;
-  line-height: 1.3;
-  color: var(--text-muted);
-  max-width: 14ch;
-}
-
-.hero-creds {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  padding: 1.25rem 0;
-  border-top: 1px solid var(--ink-muted);
-  background: var(--bg);
-}
-
-.hero-learning {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin: 0;
-  padding-top: 1rem;
-  border-top: 1px solid var(--ink-muted);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text);
-  background: var(--bg);
-}
-
-.hero-learning::before {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-  .hero-stats-list {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 1.5rem;
+@media (max-width: 1023px) {
+  .hero-photo {
+    width: 100%;
+    max-width: 30rem;
   }
-  .hero-stats-list li {
-    grid-template-columns: 1fr;
-    align-items: start;
-    gap: 0.6rem;
+  .hero-photo-frame {
+    aspect-ratio: 1 / 1;
   }
 }
 
@@ -1706,6 +1729,64 @@ body.nav-open .header-inner {
   margin: 1.75rem 0 0;
 }
 
+.timeline .exp-quote {
+  position: relative;
+  max-width: 44rem;
+  margin: 2.25rem 0 0;
+  padding: 1.75rem 0 0 clamp(1.25rem, 3vw, 2rem);
+  border-top: 1px solid var(--rule);
+  border-left: 2px solid var(--accent);
+}
+
+.timeline .exp-quote::before {
+  content: "“";
+  content: "“" / "";
+  position: absolute;
+  top: 0.9rem;
+  left: clamp(1.25rem, 3vw, 2rem);
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.timeline .exp-quote blockquote {
+  margin: 0;
+  padding-top: 2.25rem;
+}
+
+.timeline .exp-quote blockquote p {
+  margin: 0;
+  font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+.timeline .exp-quote figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.timeline .exp-quote-name {
+  color: var(--text);
+}
+
+.timeline .exp-quote-name::after {
+  content: " —";
+  content: " —" / "";
+  color: var(--accent);
+}
+
 @media (min-width: 720px) {
   .timeline .card {
     display: grid;
@@ -2148,10 +2229,6 @@ body.nav-open .header-inner {
   color: var(--accent);
 }
 
-.footer-visits-hint {
-  opacity: 0.85;
-}
-
 @media (min-width: 720px) {
   .footer-inner {
     flex-direction: row;
@@ -2341,5 +2418,378 @@ body.nav-open .header-inner {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ==========================================================================
+   19. Boot screen
+   ========================================================================== */
+.boot {
+  display: none;
+}
+
+.intro-on .boot {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-mono);
+  transition: transform 0.7s var(--ease);
+  /* Safety net if JS never runs */
+  animation: boot-fallback 0s linear 5s forwards;
+}
+
+.boot.is-leaving {
+  transform: translateY(-100%);
+}
+
+.boot-inner {
+  width: min(30rem, 100% - 3rem);
+}
+
+.boot-line {
+  margin: 0 0 0.6rem;
+  font-size: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: boot-in 0.25s var(--ease) forwards;
+  animation-delay: calc(var(--i) * 0.4s);
+}
+
+.boot-line::before {
+  content: "> ";
+  content: "> " / "";
+  color: var(--accent);
+}
+
+.boot-brand {
+  margin-bottom: 1.25rem;
+  font-size: clamp(1.125rem, 1rem + 0.6vw, 1.375rem);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.boot-brand::before {
+  content: "■ ";
+  content: "■ " / "";
+}
+
+.boot-ok {
+  color: var(--accent);
+}
+
+.boot-bar {
+  height: 2px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  background: var(--border);
+}
+
+.boot-bar::after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: boot-bar 2.1s var(--ease) forwards;
+}
+
+@keyframes boot-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes boot-bar {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes boot-fallback {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ==========================================================================
+   20. Hero intro sequence
+   ========================================================================== */
+.hero-title .word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.hero-title .word > span {
+  display: inline-block;
+}
+
+/* Under the boot curtain the hero stays painted so it counts as loaded (LCP) */
+.motion:not(.hero-play):not(.intro-on) .hero-seq {
+  clip-path: inset(0 0 100% 0);
+}
+
+.motion:not(.hero-play):not(.intro-on) .hero-photo {
+  opacity: 0;
+}
+
+.motion:not(.hero-play):not(.intro-on) .hero-title .word > span {
+  transform: translateY(105%);
+}
+
+.hero-play .hero-title .word > span {
+  animation: hero-word 0.9s var(--ease) both;
+  animation-delay: calc(0.2s + var(--w) * 0.08s);
+}
+
+.hero-play .hero-seq {
+  animation: hero-up 0.7s var(--ease) both;
+  animation-delay: calc(0.1s + var(--s) * 0.1s);
+}
+
+.hero-play .hero-photo {
+  animation: hero-fade 0.3s linear both 0.15s;
+}
+
+.hero-play .hero-photo-frame {
+  animation: hero-wipe 1.1s cubic-bezier(0.7, 0, 0.2, 1) both 0.25s;
+}
+
+.hero-play .hero-photo-frame img {
+  animation: hero-zoom 1.8s var(--ease) both 0.25s;
+}
+
+.hero-play .hero-photo::before,
+.hero-play .hero-photo::after {
+  animation: hero-corner 0.6s var(--ease) both 1.1s;
+}
+
+.hero-play .hero-photo-caption {
+  animation: hero-up 0.6s var(--ease) both 1.2s;
+}
+
+@keyframes hero-word {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+/* Wipe instead of fade so text never sits at a low-contrast mid-opacity */
+@keyframes hero-up {
+  from {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(16px);
+  }
+  to {
+    clip-path: inset(-1rem);
+    transform: none;
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-wipe {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-corner {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* ==========================================================================
+   21. Theme switch: circular reveal
+   ========================================================================== */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* ==========================================================================
+   22. Tech marquee
+   ========================================================================== */
+.marquee {
+  overflow: hidden;
+  padding: clamp(1.25rem, 2.5vw, 2rem) 0;
+  border-top: 1px solid var(--border);
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 45s linear infinite;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.marquee-group span {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(1.75rem, 1.1rem + 2.6vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+@supports (-webkit-text-stroke: 1px black) {
+  .marquee-group span:nth-child(even) {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text);
+  }
+}
+
+.marquee-group span::after {
+  content: "■";
+  content: "■" / "";
+  margin-inline: clamp(1.25rem, 3vw, 2.5rem);
+  font-size: 0.35em;
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   23. Custom cursor
+   ========================================================================== */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 500;
+  width: 10px;
+  height: 10px;
+  margin: -5px 0 0 -5px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+
+.cursor-dot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+
+.cursor-dot.is-active {
+  opacity: 1;
+}
+
+.cursor-dot.is-hover::before {
+  transform: scale(3.4);
+  opacity: 0.28;
+}
+
+/* ==========================================================================
+   24. 404 page
+   ========================================================================== */
+.notfound {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1.5rem;
+  font-family: var(--font-mono);
+}
+
+.notfound-inner {
+  width: min(34rem, 100%);
+}
+
+.notfound-code {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.notfound-cursor {
+  display: inline-block;
+  width: 0.6em;
+  height: 1.1em;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: notfound-blink 1s steps(1) infinite;
+}
+
+.notfound-title {
+  margin: 2.5rem 0 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--font);
+  font-size: clamp(2rem, 1.4rem + 3vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.045em;
+  opacity: 0;
+  animation: boot-in 0.4s var(--ease) forwards 1.5s;
+}
+
+.notfound .btn {
+  opacity: 0;
+  animation: boot-in 0.4s var(--ease) forwards 1.7s;
+}
+
+@keyframes notfound-blink {
+  50% {
+    opacity: 0;
   }
 }

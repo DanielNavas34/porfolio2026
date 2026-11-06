@@ -18,13 +18,91 @@
   <meta property="og:image:alt" content="Daniel Navas — Desarrollador Web Full Stack">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://danielnavas.dev/assets/og-preview.jpg">
-  <link rel="icon" type="image/jpeg" href="assets/logo1.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:site_name" content="Daniel Navas">
+  <link rel="icon" type="image/png" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://danielnavas.dev/#person",
+        "name": "Daniel Guerrero Navas",
+        "alternateName": "Daniel Navas",
+        "url": "https://danielnavas.dev/",
+        "image": "https://danielnavas.dev/assets/foto-perfil.jpg",
+        "jobTitle": "Desarrollador Web Full Stack",
+        "description": "Desarrollador Web Full Stack en Algeciras (Cádiz): aplicaciones web, automatización con Microsoft Power Platform e IA aplicada.",
+        "email": "mailto:danielnavas711900@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Algeciras",
+          "addressRegion": "Cádiz",
+          "addressCountry": "ES"
+        },
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Digitech FP"
+        },
+        "knowsAbout": ["Desarrollo web Full Stack", "PHP", "Laravel", "JavaScript", "Node.js", "MySQL", "Microsoft Power Platform", "Power BI", "IA agéntica", "Cursor"],
+        "knowsLanguage": ["es", "en"],
+        "sameAs": [
+          "https://www.linkedin.com/in/daniel--guerrero-navas/",
+          "https://github.com/danielnavas34",
+          "https://www.instagram.com/danielnavas.dev/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://danielnavas.dev/#website",
+        "url": "https://danielnavas.dev/",
+        "name": "Daniel Navas | Desarrollador Web Full Stack",
+        "inLanguage": "es-ES",
+        "author": { "@id": "https://danielnavas.dev/#person" }
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://danielnavas.dev/#profile",
+        "url": "https://danielnavas.dev/",
+        "mainEntity": { "@id": "https://danielnavas.dev/#person" },
+        "isPartOf": { "@id": "https://danielnavas.dev/#website" }
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        root.setAttribute("data-theme", localStorage.getItem("theme") || "light");
+        root.lang = localStorage.getItem("lang") || "es";
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          root.classList.add("motion");
+          setTimeout(function () { root.classList.add("hero-play"); }, 6000);
+          if (!sessionStorage.getItem("intro-seen")) {
+            root.classList.add("intro-on");
+            sessionStorage.setItem("intro-seen", "1");
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
 </head>
 <body>
+  <div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-inner">
+      <p class="boot-line boot-brand" style="--i: 0">danielnavas.dev</p>
+      <p class="boot-line" style="--i: 1"><span data-i18n="boot_1">cargando proyectos…</span> <span class="boot-ok">ok</span></p>
+      <p class="boot-line" style="--i: 2"><span data-i18n="boot_2">preparando stack…</span> <span class="boot-ok">ok</span></p>
+      <p class="boot-line" style="--i: 3"><span data-i18n="boot_3">iniciando agentes IA…</span> <span class="boot-ok">ok</span></p>
+      <div class="boot-bar"></div>
+    </div>
+  </div>
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <header class="site-header" id="site-header">
@@ -65,35 +143,32 @@
   <main id="main">
     <section id="hero" class="section hero">
       <div class="container hero-grid">
-        <div class="reveal reveal-hero">
-          <p class="hero-badge" data-i18n="hero_badge">Disponible para trabajar</p>
-          <h1><span data-i18n="hero_title">Desarrollador Web Full Stack</span></h1>
-          <p class="hero-lead" data-i18n="hero_lead">Creo aplicaciones web, automatizaciones empresariales y herramientas digitales que resuelven problemas reales en operaciones y negocio.</p>
-          <p class="hero-desc" data-i18n="hero_desc">Daniel Navas · Algeciras, Cádiz. Técnico Superior en DAW, orientado al desarrollo Full Stack, Microsoft Power Platform y la transformación digital.</p>
-          <div class="hero-actions">
+        <div>
+          <p class="hero-badge hero-seq" style="--s: 0" data-i18n="hero_badge">Disponible para trabajar</p>
+          <h1 class="hero-title"><span data-i18n="hero_title">Desarrollador Web Full Stack</span></h1>
+          <p class="hero-lead hero-seq" style="--s: 5" data-i18n="hero_lead">Creo aplicaciones web, automatizaciones empresariales y herramientas digitales que resuelven problemas reales en operaciones y negocio.</p>
+          <p class="hero-desc hero-seq" style="--s: 6" data-i18n="hero_desc">Daniel Navas · Algeciras, Cádiz. Técnico Superior en DAW, orientado al desarrollo Full Stack, Microsoft Power Platform y la transformación digital.</p>
+          <div class="hero-actions hero-seq" style="--s: 7">
             <a href="#projects" class="btn btn-primary hero-action-wide" data-i18n="hero_btn_projects">Ver proyectos</a>
             <a href="CV_Daniel_Guerrero_Navas_11.10.pdf" class="btn btn-secondary hero-action-wide" download data-i18n="hero_btn_cv">Descargar CV</a>
             <a href="https://www.linkedin.com/in/daniel--guerrero-navas/" class="btn btn-secondary hero-action-half" target="_blank" rel="noopener noreferrer" data-i18n="hero_btn_linkedin">LinkedIn</a>
             <a href="#contact" class="btn btn-ghost hero-action-half" data-i18n="hero_btn_contact">Contactar</a>
           </div>
-          <div class="hero-meta">
+          <div class="hero-meta hero-seq" style="--s: 8">
             <span>Algeciras, Cádiz · España</span>
-            <span data-i18n="hero_meta_stack">Full Stack · Power Platform · Automatización</span>
+            <span data-i18n="hero_meta_stack">Full Stack · Power Platform · IA y automatización</span>
           </div>
         </div>
-        <div class="hero-visual hero-stats reveal reveal-scale" id="hero-visual">
-          <p class="hero-stats-label" data-i18n="hero_stats_label">En cifras</p>
-          <ul class="hero-stats-list">
-            <li><strong class="hero-stat-num">10</strong><span class="hero-stat-text" data-i18n="hero_stat1">proyectos desarrollados</span></li>
-            <li><strong class="hero-stat-num">9</strong><span class="hero-stat-text" data-i18n="hero_stat2">años coordinando equipos</span></li>
-            <li><strong class="hero-stat-num">2</strong><span class="hero-stat-text" data-i18n="hero_stat3">productos en producción</span></li>
-          </ul>
-          <ul class="hero-creds">
-            <li class="tag" data-i18n="hero_cred1">DAW · 2026</li>
-            <li class="tag" data-i18n="hero_cred2">Análisis de datos Google · 2026</li>
-          </ul>
-          <p class="hero-learning" data-i18n="hero_learning">En permanente aprendizaje</p>
-        </div>
+        <figure class="hero-visual hero-photo" id="hero-visual">
+          <picture class="hero-photo-frame">
+            <source srcset="assets/foto-perfil.webp" type="image/webp">
+            <img src="assets/foto-perfil.jpg" width="960" height="1286" alt="Retrato de Daniel Navas" data-i18n-alt="hero_photo_alt" fetchpriority="high" decoding="async">
+          </picture>
+          <figcaption class="hero-photo-caption">
+            <span class="hero-photo-name">Daniel Navas</span>
+            <span data-i18n="hero_photo_role">Full Stack · Algeciras</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -107,6 +182,17 @@
       </div>
     </section>
 
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>Cursor</span><span>IA agéntica</span><span>PHP</span><span>Laravel</span><span>JavaScript</span><span>Node.js</span><span>Power Platform</span><span>Python</span><span>MySQL</span><span>Angular</span><span>Docker</span><span>Power BI</span>
+        </div>
+        <div class="marquee-group">
+          <span>Cursor</span><span>IA agéntica</span><span>PHP</span><span>Laravel</span><span>JavaScript</span><span>Node.js</span><span>Power Platform</span><span>Python</span><span>MySQL</span><span>Angular</span><span>Docker</span><span>Power BI</span>
+        </div>
+      </div>
+    </div>
+
     <section id="projects" class="section section-alt">
       <div class="container">
         <p class="section-label reveal" data-i18n="projects_label">Portfolio</p>
@@ -116,15 +202,15 @@
         <div class="grid-2 stagger-group">
           <article class="card project-card reveal hover-lift project-card--apm">
             <button type="button" class="project-thumb project-thumb--photo" onclick="openGallery()" aria-label="Abrir galería Terminal Control">
-              <img src="assets/gallery/image1.png" alt="" data-i18n-alt="gal_1_alt" loading="lazy" width="960" height="600">
+              <img src="assets/gallery/image1.webp" alt="" data-i18n-alt="gal_1_alt" loading="lazy" width="960" height="600">
             </button>
-            <div class="project-mini-gallery" aria-label="Vista previa de capturas">
-              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/image1.png')"><img src="assets/gallery/image1.png" alt="" loading="lazy"></button>
-              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/image1.2.png')"><img src="assets/gallery/image1.2.png" alt="" loading="lazy"></button>
-              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen2.png')"><img src="assets/gallery/imagen2.png" alt="" loading="lazy"></button>
-              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen3.png')"><img src="assets/gallery/imagen3.png" alt="" loading="lazy"></button>
-              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen4.png')"><img src="assets/gallery/imagen4.png" alt="" loading="lazy"></button>
-              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen5.png')"><img src="assets/gallery/imagen5.png" alt="" loading="lazy"></button>
+            <div class="project-mini-gallery" role="group" aria-label="Vista previa de capturas">
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/image1.webp')"><img src="assets/gallery/image1.webp" alt="Ampliar captura 1 de Terminal Control" data-i18n-alt="mini_shot_1" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/image1.2.webp')"><img src="assets/gallery/image1.2.webp" alt="Ampliar captura 2 de Terminal Control" data-i18n-alt="mini_shot_2" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen2.webp')"><img src="assets/gallery/imagen2.webp" alt="Ampliar captura 3 de Terminal Control" data-i18n-alt="mini_shot_3" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen3.webp')"><img src="assets/gallery/imagen3.webp" alt="Ampliar captura 4 de Terminal Control" data-i18n-alt="mini_shot_4" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen4.webp')"><img src="assets/gallery/imagen4.webp" alt="Ampliar captura 5 de Terminal Control" data-i18n-alt="mini_shot_5" loading="lazy"></button>
+              <button type="button" class="project-mini-shot" onclick="openLightbox('assets/gallery/imagen5.webp')"><img src="assets/gallery/imagen5.webp" alt="Ampliar captura 6 de Terminal Control" data-i18n-alt="mini_shot_6" loading="lazy"></button>
             </div>
             <div class="project-head">
               <span class="pill pill-accent" data-i18n="proj_type_pro">Profesional</span>
@@ -154,7 +240,7 @@
 
           <article class="card project-card reveal hover-lift">
             <a href="https://danielnavas34.github.io/proyecto_web_bar_malaga/" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
-              <img src="assets/gallery/la-malaguena.jpg" alt="" data-i18n-alt="proj2_thumb_alt" loading="lazy" width="960" height="600">
+              <img src="assets/gallery/la-malaguena.webp" alt="" data-i18n-alt="proj2_thumb_alt" loading="lazy" width="960" height="600">
             </a>
             <div class="project-head">
               <span class="pill pill-accent" data-i18n="proj_type_acad">Académico</span>
@@ -174,7 +260,7 @@
 
           <article class="card project-card reveal hover-lift">
             <a href="https://ligatenisalgeciras.infinityfree.io/?i=1" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
-              <img src="assets/gallery/liga-tenis.jpg" alt="" data-i18n-alt="proj3_thumb_alt" loading="lazy" width="960" height="600">
+              <img src="assets/gallery/liga-tenis.webp" alt="" data-i18n-alt="proj3_thumb_alt" loading="lazy" width="960" height="600">
             </a>
             <div class="project-head">
               <span class="pill" data-i18n="proj_type_personal">Personal</span>
@@ -193,7 +279,7 @@
 
           <article class="card project-card reveal hover-lift">
             <a href="https://danielnavas34.github.io/MerryChristmasEOIAlgeciras/" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
-              <img src="assets/gallery/eoi.jpg" alt="" data-i18n-alt="proj4_thumb_alt" loading="lazy" width="960" height="600">
+              <img src="assets/gallery/eoi.webp" alt="" data-i18n-alt="proj4_thumb_alt" loading="lazy" width="960" height="600">
             </a>
             <div class="project-head">
               <span class="pill" data-i18n="proj_type_acad">Académico</span>
@@ -212,7 +298,7 @@
 
           <article class="card project-card reveal hover-lift">
             <a href="https://danielnavas34.github.io/Fruteria/" class="project-thumb project-thumb--photo" target="_blank" rel="noopener noreferrer">
-              <img src="assets/gallery/fruteria.jpg" alt="" data-i18n-alt="proj5_thumb_alt" loading="lazy" width="960" height="600">
+              <img src="assets/gallery/fruteria.webp" alt="" data-i18n-alt="proj5_thumb_alt" loading="lazy" width="960" height="600">
             </a>
             <div class="project-head">
               <span class="pill" data-i18n="proj_type_personal">Personal</span>
@@ -375,9 +461,14 @@
             <div class="tag-list"><span class="tag">Power Apps</span><span class="tag">Power Automate</span><span class="tag">Power BI</span><span class="tag">SharePoint</span></div>
           </article>
           <article class="card stack-block reveal">
+            <h3 data-i18n="stack_ai_title">IA aplicada y agentes</h3>
+            <p class="text-muted" data-i18n="stack_ai_desc">Desarrollo asistido por IA con Cursor: agentes que planifican, editan y verifican código bajo mi revisión, reglas de proyecto y flujos agénticos que automatizan tareas de varios pasos.</p>
+            <div class="tag-list"><span class="tag">Cursor</span><span class="tag">IA agéntica</span><span class="tag">IA generativa</span><span class="tag">Prompt engineering</span><span class="tag">ChatGPT / Claude</span></div>
+          </article>
+          <article class="card stack-block reveal">
             <h3 data-i18n="stack_ops_title">Herramientas e infraestructura</h3>
-            <p class="text-muted" data-i18n="stack_ops_desc">Git, Docker, Linux, Apache, XAMPP, VS Code.</p>
-            <div class="tag-list"><span class="tag">Git / GitHub</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">XAMPP</span><span class="tag">VS Code</span></div>
+            <p class="text-muted" data-i18n="stack_ops_desc">Git, Docker, Linux, Apache, XAMPP, VS Code y Cursor.</p>
+            <div class="tag-list"><span class="tag">Git / GitHub</span><span class="tag">Docker</span><span class="tag">Linux</span><span class="tag">Apache</span><span class="tag">XAMPP</span><span class="tag">VS Code / Cursor</span></div>
           </article>
           <article class="card stack-block reveal span-full">
             <h3 data-i18n="stack_other_title">Otros conocimientos</h3>
@@ -406,7 +497,7 @@
               <li data-i18n="exp3_m3">Enfoque en operación real del club: captura de resultados, visibilidad del ranking y mensaje claro para nuevos clientes.</li>
               <li data-i18n="exp3_m4">Despliegue en entorno de hosting compartido con producto accesible 24/7.</li>
             </ul>
-            <p class="exp-note" data-i18n="exp3_stack"><strong>Stack:</strong> PHP, Laravel, MySQL, HTML/CSS, JavaScript, Git; buenas prácticas de seguridad en autenticación (p. ej. CSRF en formularios).</p>
+            <p class="exp-note" data-i18n="exp3_stack"><strong>Stack:</strong> PHP, Laravel, MySQL, HTML/CSS, JavaScript, Git; buenas prácticas de seguridad en autenticación (p. ej. CSRF en formularios); desarrollo asistido con agentes de IA (Cursor).</p>
             <p class="exp-note text-muted" data-i18n="exp3_open">Abierto a encargos similares: clubs, pymes y herramientas internas sencillas con impacto medible.</p>
             <p class="exp-actions">
               <a href="https://laligadeltenista.infinityfree.io" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="exp3_demo">Demo en vivo</a>
@@ -431,6 +522,15 @@
               <li data-i18n="exp1_m2">Incidencias y avisos registrados en un solo flujo, con menos gestión dispersa por correo.</li>
               <li data-i18n="exp1_m3">Informes e históricos accesibles para coordinación y comunicación con líneas operadoras.</li>
             </ul>
+            <figure class="exp-quote">
+              <blockquote>
+                <p data-i18n="exp1_quote">Ha demostrado ser una persona proactiva, responsable, sensata, dinámica, comprometida […] y con capacidad y voluntad de aprendizaje rápido. Su desempeño y su comportamiento personal han sido excelentes.</p>
+              </blockquote>
+              <figcaption>
+                <span class="exp-quote-name">Irene García de Quirós</span>
+                <span data-i18n="exp1_quote_role">People Business Partner · APM Terminals Algeciras</span>
+              </figcaption>
+            </figure>
             <p class="exp-actions">
               <a href="APM%20TERMINALS.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-i18n="exp1_rec">Ver recomendación APM Terminals</a>
             </p>
@@ -491,6 +591,7 @@
           <article class="card reveal"><h3 data-i18n="serv3_title">Digitalización de procesos</h3><p class="text-muted" data-i18n="serv3_desc">Soluciones para equipos no técnicos.</p></article>
           <article class="card reveal"><h3 data-i18n="serv4_title">Datos e informes</h3><p class="text-muted" data-i18n="serv4_desc">Dashboards Power BI.</p></article>
           <article class="card reveal"><h3 data-i18n="serv5_title">Herramientas para negocios locales</h3><p class="text-muted" data-i18n="serv5_desc">Presencia web y paneles sencillos.</p></article>
+          <article class="card reveal"><h3 data-i18n="serv6_title">Automatización con IA</h3><p class="text-muted" data-i18n="serv6_desc">Agentes y asistentes que clasifican, resumen o responden tareas repetitivas, integrados en tus herramientas.</p></article>
         </div>
       </div>
     </section>
@@ -561,13 +662,13 @@
     </div>
   </footer>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vista ampliada">
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vista ampliada" inert>
     <div class="modal-backdrop" onclick="closeLightbox()"></div>
     <button type="button" class="icon-btn modal-close lightbox-close" onclick="closeLightbox()" aria-label="Cerrar">&times;</button>
     <img id="lightbox-img" src="" alt="">
   </div>
 
-  <div class="gallery-modal" id="gallery-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gallery-title">
+  <div class="gallery-modal" id="gallery-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="gallery-title" inert>
     <div class="modal-backdrop"></div>
     <div class="modal-dialog">
       <button type="button" class="icon-btn modal-close" aria-label="Cerrar galería">&times;</button>
@@ -575,38 +676,38 @@
       <p class="text-muted" data-i18n="gallery_sub">Terminal Control · contexto operativo APM Terminals</p>
       <div class="modal-grid">
         <figure class="modal-item">
-          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/image1.png')">
-            <img src="assets/gallery/image1.png" alt="" data-i18n-alt="gal_1_alt" loading="lazy" width="800" height="500">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/image1.webp')">
+            <img src="assets/gallery/image1.webp" alt="" data-i18n-alt="gal_1_alt" loading="lazy" width="800" height="500">
           </button>
           <figcaption data-i18n="gal_1_cap">Panel principal de gestión de incidencias por buque.</figcaption>
         </figure>
         <figure class="modal-item">
-          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/image1.2.png')">
-            <img src="assets/gallery/image1.2.png" alt="" data-i18n-alt="gal_2_alt" loading="lazy" width="800" height="500">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/image1.2.webp')">
+            <img src="assets/gallery/image1.2.webp" alt="" data-i18n-alt="gal_2_alt" loading="lazy" width="800" height="500">
           </button>
           <figcaption data-i18n="gal_2_cap">Formulario Power Apps para registrar incidencias (Extra Restows).</figcaption>
         </figure>
         <figure class="modal-item">
-          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen2.png')">
-            <img src="assets/gallery/imagen2.png" alt="" data-i18n-alt="gal_3_alt" loading="lazy" width="800" height="500">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen2.webp')">
+            <img src="assets/gallery/imagen2.webp" alt="" data-i18n-alt="gal_3_alt" loading="lazy" width="800" height="500">
           </button>
           <figcaption data-i18n="gal_3_cap">Listas operativas en SharePoint sincronizadas con la super app.</figcaption>
         </figure>
         <figure class="modal-item">
-          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen3.png')">
-            <img src="assets/gallery/imagen3.png" alt="" data-i18n-alt="gal_4_alt" loading="lazy" width="800" height="500">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen3.webp')">
+            <img src="assets/gallery/imagen3.webp" alt="" data-i18n-alt="gal_4_alt" loading="lazy" width="800" height="500">
           </button>
           <figcaption data-i18n="gal_4_cap">Informe operativo automatizado generado por Terminal Control.</figcaption>
         </figure>
         <figure class="modal-item">
-          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen4.png')">
-            <img src="assets/gallery/imagen4.png" alt="" data-i18n-alt="gal_5_alt" loading="lazy" width="800" height="500">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen4.webp')">
+            <img src="assets/gallery/imagen4.webp" alt="" data-i18n-alt="gal_5_alt" loading="lazy" width="800" height="500">
           </button>
           <figcaption data-i18n="gal_5_cap">Comunicación de incidencias a clientes y líneas operadoras.</figcaption>
         </figure>
         <figure class="modal-item">
-          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen5.png')">
-            <img src="assets/gallery/imagen5.png" alt="" data-i18n-alt="gal_6_alt" loading="lazy" width="800" height="500">
+          <button type="button" class="modal-shot-btn" onclick="openLightbox('assets/gallery/imagen5.webp')">
+            <img src="assets/gallery/imagen5.webp" alt="" data-i18n-alt="gal_6_alt" loading="lazy" width="800" height="500">
           </button>
           <figcaption data-i18n="gal_6_cap">Flujos de Power Automate para adjuntos, condiciones y envío de correos.</figcaption>
         </figure>

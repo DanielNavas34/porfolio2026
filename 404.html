@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página no encontrada | Daniel Navas</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="/assets/favicon-64.png">
+  <link rel="preload" href="/assets/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/geist-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script>
+    (function () {
+      var root = document.documentElement;
+      try {
+        root.setAttribute("data-theme", localStorage.getItem("theme") || "light");
+        root.lang = localStorage.getItem("lang") || "es";
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <main class="notfound">
+    <div class="notfound-inner">
+      <p class="boot-line boot-brand" style="--i: 0">danielnavas.dev</p>
+      <p class="boot-line" style="--i: 1"><span data-es="buscando página…" data-en="looking for page…">buscando página…</span> <span class="notfound-code">404</span></p>
+      <p class="boot-line" style="--i: 2"><span data-es="página no encontrada…" data-en="page not found…">página no encontrada…</span> <span class="boot-ok">ok</span></p>
+      <p class="boot-line" style="--i: 3"><span data-es="volviendo al inicio…" data-en="heading back home…">volviendo al inicio…</span> <span class="notfound-cursor" aria-hidden="true"></span></p>
+      <h1 class="notfound-title" data-es="Esta página no existe." data-en="This page doesn't exist.">Esta página no existe.</h1>
+      <a href="/" class="btn btn-primary" data-es="Volver al portfolio" data-en="Back to portfolio">Volver al portfolio</a>
+    </div>
+  </main>
+  <script>
+    if (document.documentElement.lang === "en") {
+      document.title = "Page not found | Daniel Navas";
+      document.querySelectorAll("[data-en]").forEach(function (el) {
+        el.textContent = el.getAttribute("data-en");
+      });
+    }
+  </script>
+</body>
+</html>
